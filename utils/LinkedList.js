@@ -39,7 +39,7 @@ class LinkedList {
         return this.#size;
     }
 
-    //inserts at head
+    //private method which inserts at head
     #insert(data) {
         let newNode = new Node(data);
         console.log(newNode.show);
@@ -48,6 +48,7 @@ class LinkedList {
         this.#size++;
     }
 
+    //prints the list
     print() {
         let s = '';
         let temp = this.#head;
@@ -59,6 +60,7 @@ class LinkedList {
         console.log('Current list:', s);
     }
 
+    //reverses the list
     reverse() {
         let temp = null;
         let current = this.#head;
@@ -71,6 +73,7 @@ class LinkedList {
         this.#head = temp;
     }
 
+    //fetches the middle node of the list
     middle() {
         let slow = this.#head;
         let fast = this.#head;
@@ -81,7 +84,21 @@ class LinkedList {
         return slow;
     }
 
-    //accepts variable number of elements in order of arguments to create the linked list
+    //fetches the node at given index
+    getNode(index) {
+        if(index < 0 || index > this.#size - 1) {
+            throw console.error("Invalid index");
+        }
+        let current = this.#head;
+        let count = 0;
+        while(current != null && count < index) {
+            current = current.next;
+            count++;
+        }
+        return current;
+    }
+
+    //create a linked list accepting variable number of arguments, in the order of the arguments passed
     static create(...args) {
         let list = new LinkedList();
         args.slice(0).reverse().forEach(val => {
