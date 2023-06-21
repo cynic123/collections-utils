@@ -1,3 +1,6 @@
+/**
+ * a singly linked list implementation
+ */
 class Node {
     #value;
     #next;
@@ -98,7 +101,7 @@ class LinkedList {
         return current;
     }
 
-    //create a linked list accepting variable number of arguments, in the order of the arguments passed
+    //creates a linked list accepting variable number of arguments populated as elements, in the order of the arguments passed
     static create(...args) {
         let list = new LinkedList();
         args.slice(0).reverse().forEach(val => {
