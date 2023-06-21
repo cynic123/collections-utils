@@ -1,6 +1,8 @@
 /**
- * a singly linked list implementation
+ * @author Prithwish Samanta
+ * a singly linked list implementation with utility methods
  */
+
 class Node {
     #value;
     #next;
