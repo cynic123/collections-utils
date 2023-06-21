@@ -82,6 +82,7 @@ class LinkedList {
             let next = current.next;
             current.next = temp;
             temp = current;
+            current.index = this.#size - current.index - 1;
             current = next;
         }
         this.#head = temp;
@@ -98,24 +99,33 @@ class LinkedList {
         return slow;
     }
 
-    //fetches the node at given index
+    //fetches the node at given index (index can be string or number)
     getNode(index) {
         if(index < 0 || index > this.#size - 1) {
             throw console.error("Invalid index");
         }
         let current = this.#head;
-        let count = 0;
-        while(current != null && count < index) {
+        while(current != null && current.index != index) {
             current = current.next;
-            count++;
         }
         return current;
+    }
+
+    //returns a new array containing the elements of linked list in their original order
+    toArray() {
+        let current = this.#head;
+        let arr = [];
+        while(current != null) {
+            arr[current.index] = current.value;
+            current = current.next;
+        }
+        return arr;
     }
 
     //creates a linked list accepting variable number of arguments populated as elements, in the order of the arguments passed
     static create(...args) {
         let list = new LinkedList();
-        let count = args.length - 1;
+        let count = args? args.length - 1 : null;
         args.slice(0).reverse().forEach(val => {
             list.#insert(val, count--);
         });
