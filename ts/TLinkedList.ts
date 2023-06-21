@@ -74,7 +74,7 @@ class LinkedList<T>{
     /**
      * prints the list
      */
-    print(): void {
+    public print(): void {
         let s = '';
         let temp = this._head;
         while (temp) {
@@ -88,7 +88,7 @@ class LinkedList<T>{
     /**
      * reverses the list
      */
-    reverse(): void {
+    public reverse(): void {
         let temp: null | TNode<T> = null;
         let current = this._head;
         while (current) {
@@ -105,7 +105,7 @@ class LinkedList<T>{
      * 
      * @returns middle node of the list
      */
-    middle(): TNode<T> | null {
+    public middle(): TNode<T> | null {
         let slow: TNode<T> | any = this._head;
         let fast: TNode<T> | any = this._head;
         while (fast && fast.next) {
@@ -120,7 +120,7 @@ class LinkedList<T>{
      * @param index 
      * @returns node at the specified index
      */
-    getNode(index: number): TNode<T> | null {
+    public getNode(index: number): TNode<T> | null {
         if (index < 0 || index > this._size - 1) {
             throw console.error("Invalid index!");
         }
@@ -135,7 +135,7 @@ class LinkedList<T>{
      * 
      * @returns returns a new array containing the elements of linked list in their original order
      */
-    toArray(): Array<number> | null {
+    public toArray(): Array<number> | null {
         let current: TNode<T> | null = this._head;
         let arr: number[] = [];
         while (current != null) {
