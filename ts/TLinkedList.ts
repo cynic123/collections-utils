@@ -1,7 +1,11 @@
 /**
- * Node class with value, next (next node reference) and index of the node, when added in a LinkedList instance. 
+ * @author Prithwish Samanta
+ * a singly linked list implementation with utility methods
  */
 
+/**
+ * Node class with value, next (next node reference) and index of the node, when added in a LinkedList instance. 
+ */
 class TNode<T> {
     private _value: T | any;
     private _next: TNode<T> | null;
