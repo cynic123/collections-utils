@@ -1,10 +1,12 @@
 class TNode<T> {
     private _value: T | any;
     private _next: TNode<T> | null;
+    private _index: Number | null;
 
     constructor(value: T) {
         this._value = value;
         this._next = null;
+        this._index = null;
     }
 
     get value(): T | any {
@@ -21,6 +23,14 @@ class TNode<T> {
 
     set next(node: TNode<T> | null) {
         this._next = node;
+    }
+
+    get index(): Number | null {
+        return this._index;
+    }
+
+    set index(v: Number | null) {
+        this._index = v;
     }
 
     get show(): Object {
