@@ -50,7 +50,7 @@ class TNode<T> {
 /**
  * Linked List class containing head, size and other utility methods to be operated on an instance of the LinkedList class
  */
-class LinkedList<T>{
+export class TLinkedList<T>{
     private _head: TNode<T> | null;
     private _size: number;
 
