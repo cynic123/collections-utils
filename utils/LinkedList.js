@@ -4,9 +4,11 @@
 class Node {
     #value;
     #next;
+    #index;
     constructor(value) {
         this.#value = value;
         this.#next = null;
+        this.#index = null;
     }
 
     get value() {
@@ -21,8 +23,16 @@ class Node {
         this.#next = val;
     }
 
+    get index() {
+        return this.#index;
+    }
+
+    set index(val) {
+        this.#index = val;
+    }
+
     get show() {
-        return { value: this.#value, next: this.#next != null ? this.#next.show : null}
+        return { value: this.#value, index: this.#index, next: this.#next != null ? this.#next.show : null}
     }
 }
 
@@ -43,10 +53,11 @@ class LinkedList {
     }
 
     //private method which inserts at head
-    #insert(data) {
+    #insert(data, index) {
         let newNode = new Node(data);
         console.log(newNode.show);
         newNode.next = this.#head;
+        newNode.index = index;
         this.#head = newNode;
         this.#size++;
     }
@@ -104,8 +115,9 @@ class LinkedList {
     //creates a linked list accepting variable number of arguments populated as elements, in the order of the arguments passed
     static create(...args) {
         let list = new LinkedList();
+        let count = args.length - 1;
         args.slice(0).reverse().forEach(val => {
-            list.#insert(val);
+            list.#insert(val, count--);
         });
         return list;
     }
