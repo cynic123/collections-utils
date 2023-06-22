@@ -151,7 +151,7 @@ export class LinkedList<T>{
      * @param  {...any} args variabl number of elements to be added to the list
      * @returns an instance of the LinkedList class
      */
-    static create(...args: any[]) {
+    static create(...args: any[]): LinkedList<any> {
         let list = new LinkedList();
         let count: number = args? args.length - 1 : 0;
         args.slice(0).reverse().forEach(val => {
