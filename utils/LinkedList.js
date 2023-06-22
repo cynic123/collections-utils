@@ -3,6 +3,10 @@
  * a singly linked list implementation with utility methods
  */
 
+/**
+ * Node class with value, next (next node reference) and index of the node, when added in a LinkedList instance. 
+ */
+
 class Node {
     #value;
     #next;
@@ -38,6 +42,9 @@ class Node {
     }
 }
 
+/**
+ * Linked List class containing head, size and other utility methods to be operated on an instance of the LinkedList class
+ */
 class LinkedList {
     #head;
     #size;
@@ -54,7 +61,10 @@ class LinkedList {
         return this.#size;
     }
 
-    //private method which inserts at head
+    /**
+     * private method which inserts at head
+     * @param data 
+     */
     #insert(data, index) {
         let newNode = new Node(data);
         console.log(newNode.show);
@@ -64,7 +74,9 @@ class LinkedList {
         this.#size++;
     }
 
-    //prints the list
+    /**
+     * prints the list
+     */
     print() {
         let s = '';
         let temp = this.#head;
@@ -76,7 +88,9 @@ class LinkedList {
         console.log('Current list:', s);
     }
 
-    //reverses the list
+    /**
+     * reverses the list
+     */
     reverse() {
         let temp = null;
         let current = this.#head;
@@ -90,7 +104,10 @@ class LinkedList {
         this.#head = temp;
     }
 
-    //fetches the middle node of the list
+    /**
+     * 
+     * @returns middle node of the list
+     */
     middle() {
         let slow = this.#head;
         let fast = this.#head;
@@ -101,7 +118,11 @@ class LinkedList {
         return slow;
     }
 
-    //fetches the node at given index (index can be string or number)
+    /**
+     * 
+     * @param index 
+     * @returns node at the specified index
+     */
     getNode(index) {
         if(index < 0 || index > this.#size - 1) {
             throw console.error("Invalid index");
@@ -113,7 +134,10 @@ class LinkedList {
         return current;
     }
 
-    //returns a new array containing the elements of linked list in their original order
+    /**
+     * 
+     * @returns returns a new array containing the elements of linked list in their original order
+     */
     toArray() {
         let current = this.#head;
         let arr = [];
@@ -124,7 +148,11 @@ class LinkedList {
         return arr;
     }
 
-    //creates a linked list accepting variable number of arguments populated as elements, in the order of the arguments passed
+    /**
+     * 
+     * @param  {...any} args variabl number of elements to be added to the list
+     * @returns an instance of the LinkedList class
+     */
     static create(...args) {
         let list = new LinkedList();
         let count = args? args.length - 1 : null;
