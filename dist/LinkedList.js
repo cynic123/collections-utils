@@ -47,6 +47,9 @@ class LinkedList {
     get head() {
         return this._head;
     }
+    get size() {
+        return this._size;
+    }
     /**
      * private method which inserts at head
      * @param data

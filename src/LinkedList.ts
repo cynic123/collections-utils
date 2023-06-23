@@ -63,6 +63,10 @@ export class LinkedList<T>{
         return this._head;
     }
 
+    get size(): number {
+        return this._size;
+    }
+
     /**
      * private method which inserts at head
      * @param data 
