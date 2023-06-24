@@ -71,13 +71,34 @@ export class LinkedList<T>{
      * private method which inserts at head
      * @param data 
      */
-    private insert(data: T, index: number): void {
+    private headInsert(data: T, index: number): void {
         let newNode = new Node(data);
         console.log(newNode.show);
         newNode.next = this._head;
         newNode.index = index;
         this._head = newNode;
         this._size++;
+    }
+
+    /**
+     * private method which inserts at tail
+     * @param data 
+     * @param index 
+     * @param temp 
+     * @returns the reference to the newly added node at tail
+     */
+    private tailInsert(data: T, index: number, temp: Node<T> | null): Node<T> {
+        let newNode = new Node(data);
+        newNode.index = index;
+        if (temp == null) {
+            this._head = newNode;
+            return newNode;
+        } else {
+            temp.next = newNode;
+            temp = temp.next;
+        }
+        this._size++;
+        return newNode;
     }
 
     /**
@@ -161,9 +182,9 @@ export class LinkedList<T>{
      */
     static create(...args: any[]): LinkedList<any> {
         let list = new LinkedList();
-        let count: number = args? args.length - 1 : 0;
+        let count: number = args ? args.length - 1 : 0;
         args.slice(0).reverse().forEach(val => {
-            list.insert(val, count--);
+            list.headInsert(val, count--);
         });
         return list;
     }

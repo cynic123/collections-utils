@@ -31,7 +31,15 @@ export declare class LinkedList<T> {
      * private method which inserts at head
      * @param data
      */
-    private insert;
+    private headInsert;
+    /**
+     * private method which inserts at tail
+     * @param data
+     * @param index
+     * @param temp
+     * @returns the reference to the newly added node at tail
+     */
+    private tailInsert;
     /**
      * prints the list
      */
