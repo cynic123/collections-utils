@@ -98,16 +98,16 @@ class LinkedList {
      * reverses the list
      */
     reverse() {
-        let temp = null;
+        let prev = null;
         let current = this._head;
         while (current) {
             let next = current.next;
-            current.next = temp;
-            temp = current;
+            current.next = prev;
+            prev = current;
             current.index = this._size - current.index - 1;
             current = next;
         }
-        this._head = temp;
+        this._head = prev;
     }
     /**
      *
