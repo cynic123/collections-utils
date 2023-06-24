@@ -3,6 +3,8 @@
  * a singly linked list implementation with utility methods
  */
 
+import { error } from "console";
+
 /**
  * Node class with value, next (next node reference) and index of the node, when added in a LinkedList instance. 
  */
@@ -84,18 +86,17 @@ export class LinkedList<T>{
      * private method which inserts at tail
      * @param data 
      * @param index 
-     * @param temp 
+     * @param tail 
      * @returns the reference to the newly added node at tail
      */
-    private tailInsert(data: T, index: number, temp: Node<T> | null): Node<T> {
+    private tailInsert(data: T, index: number, tail: Node<T> | null): Node<T> {
         let newNode = new Node(data);
         newNode.index = index;
-        if (temp == null) {
+        if (tail == null) {
             this._head = newNode;
-            return newNode;
         } else {
-            temp.next = newNode;
-            temp = temp.next;
+            tail.next = newNode;
+            tail = tail.next;
         }
         this._size++;
         return newNode;
@@ -119,7 +120,7 @@ export class LinkedList<T>{
      * reverses the list
      */
     public reverse(): void {
-        let temp: null | Node<T> = null;
+        let temp = null;
         let current = this._head;
         while (current) {
             let next = current.next;
@@ -152,7 +153,7 @@ export class LinkedList<T>{
      */
     public getNode(index: number): Node<T> | null {
         if (index < 0 || index > this._size - 1) {
-            throw console.error("Invalid index!");
+            throw error("Invalid index!");
         }
         let current = this._head;
         while (current != null && current.index != index) {
@@ -177,8 +178,34 @@ export class LinkedList<T>{
 
     /**
      * 
+     * @param start 
+     * @param end 
+     * @returns returns a new list containing the nodes from the start index to the end index (both inclusive) of the original list
+     */
+    public subList(start: number, end: number): LinkedList<T> {
+        if(start < 0 || end > this._size || start > end) {
+            throw error('Invalid range indices!');
+        }
+        if(start == end) {
+            return LinkedList.create(this.getNode(start));
+        }
+        let current = this._head;
+        while(current != null && current.index < start) {
+            current = current.next;
+        }
+        let list = new LinkedList();
+        let count = 0;
+        let tail = null;
+        while(current != null && current.index <= end) {
+            tail = list.tailInsert(current.value, count++, tail);
+        }
+        return list;
+    }
+
+    /**
+     * 
      * @param  {...any} args variabl number of elements to be added to the list
-     * @returns an instance of the LinkedList class
+     * @returns an instance of the LinkedList class, with arguments passed being represented as nodes in a sequential order
      */
     static create(...args: any[]): LinkedList<any> {
         let list = new LinkedList();

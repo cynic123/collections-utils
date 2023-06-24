@@ -36,7 +36,7 @@ export declare class LinkedList<T> {
      * private method which inserts at tail
      * @param data
      * @param index
-     * @param temp
+     * @param tail
      * @returns the reference to the newly added node at tail
      */
     private tailInsert;
@@ -66,8 +66,15 @@ export declare class LinkedList<T> {
     toArray(): Array<number> | null;
     /**
      *
+     * @param start
+     * @param end
+     * @returns returns a new list containing the nodes from the start index to the end index (both inclusive) of the original list
+     */
+    subList(start: number, end: number): LinkedList<T>;
+    /**
+     *
      * @param  {...any} args variabl number of elements to be added to the list
-     * @returns an instance of the LinkedList class
+     * @returns an instance of the LinkedList class, with arguments passed being represented as nodes in a sequential order
      */
     static create(...args: any[]): LinkedList<any>;
 }
