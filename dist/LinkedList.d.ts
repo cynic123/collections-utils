@@ -9,13 +9,13 @@ declare class Node<T> {
     private _value;
     private _next;
     private _index;
-    constructor(value: T);
+    constructor(value: T, next: Node<T> | null, index: number);
     get value(): T | any;
     set value(v: T | any);
     get next(): Node<T> | null;
     set next(node: Node<T> | null);
-    get index(): number | any;
-    set index(v: number | any);
+    get index(): number;
+    set index(v: number);
     get show(): Object;
 }
 /**
@@ -23,27 +23,26 @@ declare class Node<T> {
  */
 export declare class LinkedList<T> {
     private _head;
+    private _tail;
     private _size;
     constructor();
     get head(): Node<T> | null;
     get size(): number;
     /**
-     * private method which inserts at head
+     * private method which inserts at the beginning
      * @param data
      */
-    private headInsert;
+    private insertFirst;
     /**
-     * private method which inserts at tail
+     * private method which inserts at the end
      * @param data
      * @param index
-     * @param tail
-     * @returns the reference to the newly added node at tail
      */
-    private tailInsert;
+    private insertLast;
     /**
      * prints the list
      */
-    print(): void;
+    print(): String;
     /**
      * reverses the list
      */
@@ -58,7 +57,7 @@ export declare class LinkedList<T> {
      * @param index
      * @returns node at the specified index
      */
-    getNode(index: number): Node<T> | null;
+    nodeAt(index: number): Node<T> | null;
     /**
      *
      * @returns returns a new array containing the elements of linked list in their original order
@@ -73,7 +72,7 @@ export declare class LinkedList<T> {
     subList(start: number, end: number): LinkedList<T>;
     /**
      *
-     * @param  {...any} args variabl number of elements to be added to the list
+     * @param  {...any} args variable number of elements to be added to the list
      * @returns an instance of the LinkedList class, with arguments passed being represented as nodes in a sequential order
      */
     static create(...args: any[]): LinkedList<any>;

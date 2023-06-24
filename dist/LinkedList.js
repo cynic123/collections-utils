@@ -10,10 +10,10 @@ const console_1 = require("console");
  * Node class with value, next (next node reference) and index of the node, when added in a LinkedList instance.
  */
 class Node {
-    constructor(value) {
+    constructor(value, next, index) {
         this._value = value;
-        this._next = null;
-        this._index = null;
+        this._next = next;
+        this._index = index;
     }
     get value() {
         return this._value;
@@ -43,6 +43,7 @@ class Node {
 class LinkedList {
     constructor() {
         this._head = null;
+        this._tail = null;
         this._size = 0;
     }
     get head() {
@@ -52,36 +53,33 @@ class LinkedList {
         return this._size;
     }
     /**
-     * private method which inserts at head
+     * private method which inserts at the beginning
      * @param data
      */
-    headInsert(data, index) {
-        let newNode = new Node(data);
-        console.log(newNode.show);
-        newNode.next = this._head;
-        newNode.index = index;
+    insertFirst(data, index) {
+        let currHead = this._head;
+        let newNode = new Node(data, currHead, index);
         this._head = newNode;
+        if (!currHead)
+            this._tail = newNode;
         this._size++;
     }
     /**
-     * private method which inserts at tail
+     * private method which inserts at the end
      * @param data
      * @param index
-     * @param tail
-     * @returns the reference to the newly added node at tail
      */
-    tailInsert(data, index, tail) {
-        let newNode = new Node(data);
-        newNode.index = index;
-        if (tail == null) {
+    insertLast(data, index) {
+        let currTail = this._tail;
+        let newNode = new Node(data, null, index);
+        this._tail = newNode;
+        if (!currTail) {
             this._head = newNode;
         }
         else {
-            tail.next = newNode;
-            tail = tail.next;
+            currTail.next = newNode;
         }
         this._size++;
-        return newNode;
     }
     /**
      * prints the list
@@ -93,8 +91,8 @@ class LinkedList {
             s = s.concat(temp.value, ' -> ');
             temp = temp.next;
         }
-        s = s.concat('null');
-        console.log('Current list:', s);
+        s = s.length > 0 ? s.concat('null') : 'empty';
+        return s;
     }
     /**
      * reverses the list
@@ -129,12 +127,12 @@ class LinkedList {
      * @param index
      * @returns node at the specified index
      */
-    getNode(index) {
-        if (index < 0 || index > this._size - 1) {
-            throw (0, console_1.error)("Invalid index!");
+    nodeAt(index) {
+        if (index < 0 || index >= this._size) {
+            throw (0, console_1.error)('Invalid index!');
         }
         let current = this._head;
-        while (current != null && current.index != index) {
+        while (current && current.index != index) {
             current = current.next;
         }
         return current;
@@ -146,7 +144,7 @@ class LinkedList {
     toArray() {
         let current = this._head;
         let arr = [];
-        while (current != null) {
+        while (current) {
             arr[current.index] = current.value;
             current = current.next;
         }
@@ -159,34 +157,35 @@ class LinkedList {
      * @returns returns a new list containing the nodes from the start index to the end index (both inclusive) of the original list
      */
     subList(start, end) {
+        var _a;
         if (start < 0 || end > this._size || start > end) {
             throw (0, console_1.error)('Invalid range indices!');
         }
         if (start == end) {
-            return LinkedList.create(this.getNode(start));
+            return LinkedList.create((_a = this.nodeAt(start)) === null || _a === void 0 ? void 0 : _a.value);
         }
         let current = this._head;
-        while (current != null && current.index < start) {
+        while (current && current.index < start) {
             current = current.next;
         }
         let list = new LinkedList();
         let count = 0;
-        let tail = null;
-        while (current != null && current.index <= end) {
-            tail = list.tailInsert(current.value, count++, tail);
+        while (current && current.index <= end) {
+            list.insertLast(current.value, count++);
+            current = current.next;
         }
         return list;
     }
     /**
      *
-     * @param  {...any} args variabl number of elements to be added to the list
+     * @param  {...any} args variable number of elements to be added to the list
      * @returns an instance of the LinkedList class, with arguments passed being represented as nodes in a sequential order
      */
     static create(...args) {
         let list = new LinkedList();
         let count = args ? args.length - 1 : 0;
         args.slice(0).reverse().forEach(val => {
-            list.headInsert(val, count--);
+            list.insertFirst(val, count--);
         });
         return list;
     }
