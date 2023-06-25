@@ -158,7 +158,7 @@ class LinkedList {
      */
     subList(start, end) {
         var _a;
-        if (start < 0 || end > this._size || start > end) {
+        if (start < 0 || end >= this._size || start > end) {
             throw (0, console_1.error)('Invalid range indices!');
         }
         if (start == end) {

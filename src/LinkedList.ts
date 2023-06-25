@@ -182,7 +182,7 @@ export class LinkedList<T>{
      * @returns returns a new list containing the nodes from the start index to the end index (both inclusive) of the original list
      */
     subList(start: number, end: number): LinkedList<T> {
-        if (start < 0 || end > this._size || start > end) {
+        if (start < 0 || end >= this._size || start > end) {
             throw error('Invalid range indices!');
         }
         if (start == end) {

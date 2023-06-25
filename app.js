@@ -17,4 +17,4 @@ console.log('List size:', list.size);
 console.log('Array:', list.toArray());
 console.log('--------------------------------------------------------');
 let subList = list.subList(2, 4);
-console.log(subList.print());
+console.log('Sublist:', subList.print());
