@@ -46,7 +46,6 @@ class Node<T> {
     get show(): Object {
         return { value: this._value, index: this._index, next: this._next != null ? this._next.show : null };
     }
-
 }
 
 /**
@@ -63,7 +62,7 @@ export class LinkedList<T>{
         this._size = 0;
     }
 
-    get head(): Node<T> | null {
+    private get head(): Node<T> | null {
         return this._head;
     }
 
@@ -72,7 +71,7 @@ export class LinkedList<T>{
     }
 
     /**
-     * private method which inserts at the beginning
+     * private method which inserts the given data at the beginning
      * @param data 
      */
     private insertFirst(data: T, index: number): void {
@@ -85,7 +84,7 @@ export class LinkedList<T>{
     }
 
     /**
-     * private method which inserts at the end
+     * private method which inserts the given data at the end
      * @param data 
      * @param index 
      */
@@ -99,6 +98,31 @@ export class LinkedList<T>{
             currTail.next = newNode;
         }
         this._size++;
+    }
+
+    /**
+     * 
+     * @param data data element to be inserted
+     * @param index index at which the given element to be inserted
+     */
+    insertAt(data: T, index: number): void {
+        if (index < 0 || index >= this._size)
+            throw error('Invalid index!');
+        let current: Node<T> | any = this._head;
+        let prev: Node<T> | any = null;
+        let currIndex = 0;
+        while (current && currIndex < index) {
+            prev = current;
+            current = current.next;
+            currIndex++;
+        }
+        let temp = new Node(data, current, currIndex);
+        prev.next = temp;
+        current = current.next;
+        while (current) {
+            current.index = current.index + 1;
+            current = current.next;
+        }
     }
 
     /**
@@ -199,6 +223,45 @@ export class LinkedList<T>{
             current = current.next;
         }
         return list;
+    }
+
+    /**
+     * 
+     * @param other other list to compare to
+     * @returns if the referred to list and the other list passed as argument as same in size and values
+     */
+    equals(other: LinkedList<T>): boolean {
+        let head1 = this._head;
+        let head2 = other.head;
+        while (head1 && head2) {
+            if (head1.value !== head2.value) {
+                return false;
+            }
+            head1 = head1.next;
+            head2 = head2.next;
+        }
+        if (!head1 && !head2)
+            return true;
+        else return false;
+
+    }
+
+    /**
+     * 
+     * @returns if the list is a palindrome
+     */
+    palindrome(): boolean {
+        if (!this._head || !this._head.next) {
+            return true;
+        }
+        let mid = this.size / 2;
+        let lEnd = mid % 2 !== 0 ? mid - 1 : mid;
+        let rStart = mid % 2 !== 0 ? mid + 1 : mid;
+        let lList = this.subList(0, lEnd);
+        let rList = this.subList(rStart, this.size - 1);
+        rList.reverse();
+        //todo
+        return true;
     }
 
     /**

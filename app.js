@@ -1,6 +1,6 @@
 const { LinkedList } = require("./dist/LinkedList");
 
-let list = LinkedList.create(1, 2, 3, 4, 5, 6);
+let list = LinkedList.create(1, 2, 3, 3, 2, 1);
 console.log('--------------------------------------------------------');
 console.log('Current list:', list.print());
 console.log('Middle node:', list.middle().show);
@@ -16,5 +16,16 @@ console.log('Node at index 2:', list.nodeAt(2).show);
 console.log('List size:', list.size);
 console.log('Array:', list.toArray());
 console.log('--------------------------------------------------------');
-let subList = list.subList(2, 4);
-console.log('Sublist:', subList.print());
+let middleIdx = list.middle().index;
+console.log(middleIdx);
+let list1 = list.subList(0, middleIdx - 1);
+console.log(list1.print());
+let list2 = list.subList(middleIdx, list.size - 1);
+console.log(list2.print());
+list2.reverse();
+console.log('Reversed list2:', list2.print())
+console.log("Equals:", list1.equals(list2));
+console.log('--------------------------------------------------------');
+let palindromeList = LinkedList.create(1, 2, 3, 4, 2, 1);
+console.log('Creating new list:', palindromeList.print());
+//console.log('Palindrome:', palindromeList.palindrome());

@@ -26,19 +26,25 @@ export declare class LinkedList<T> {
     private _tail;
     private _size;
     constructor();
-    get head(): Node<T> | null;
+    private get head();
     get size(): number;
     /**
-     * private method which inserts at the beginning
+     * private method which inserts the given data at the beginning
      * @param data
      */
     private insertFirst;
     /**
-     * private method which inserts at the end
+     * private method which inserts the given data at the end
      * @param data
      * @param index
      */
     private insertLast;
+    /**
+     *
+     * @param data data element to be inserted
+     * @param index index at which the given element to be inserted
+     */
+    insertAt(data: T, index: number): void;
     /**
      * prints the list
      */
@@ -70,6 +76,17 @@ export declare class LinkedList<T> {
      * @returns returns a new list containing the nodes from the start index to the end index (both inclusive) of the original list
      */
     subList(start: number, end: number): LinkedList<T>;
+    /**
+     *
+     * @param other other list to compare to
+     * @returns if the referred to list and the other list passed as argument as same in size and values
+     */
+    equals(other: LinkedList<T>): boolean;
+    /**
+     *
+     * @returns if the list is a palindrome
+     */
+    palindrome(): boolean;
     /**
      *
      * @param  {...any} args variable number of elements to be added to the list
