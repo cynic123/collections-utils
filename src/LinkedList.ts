@@ -255,12 +255,14 @@ export class LinkedList<T>{
             return true;
         }
         let mid = this.size / 2;
-        let lEnd = mid % 2 !== 0 ? mid - 1 : mid;
-        let rStart = mid % 2 !== 0 ? mid + 1 : mid;
+        let odd = mid % 2 !== 0;
+        let lEnd = odd ? mid : mid - 1;
+        let rStart = mid;
         let lList = this.subList(0, lEnd);
         let rList = this.subList(rStart, this.size - 1);
         rList.reverse();
-        //todo
+        console.log(lList.print(), rList.print());
+        
         return true;
     }
 
