@@ -1,14 +1,10 @@
 "use strict";
-/**
- * @author Prithwish Samanta
- * a singly linked list implementation with utility methods
- */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.LinkedList = void 0;
 const console_1 = require("console");
-const Node_1 = require("./Node");
 /**
- * Linked List class containing head, size and other utility methods to be operated on an instance of the LinkedList class
+ * An abstract class with constructor and utility methods for regular operations on a linked list. Abstract methods
+ * have be defined in the implementating classes. Can be implemented as any form of linked lists.
  */
 class LinkedList {
     constructor() {
@@ -23,61 +19,8 @@ class LinkedList {
         return this._size;
     }
     /**
-     * private method which inserts the given data at the beginning
-     * @param data
-     */
-    insertFirst(data, index) {
-        let currHead = this._head;
-        let newNode = new Node_1.Node(data, currHead, index);
-        this._head = newNode;
-        if (!currHead)
-            this._tail = newNode;
-        this._size++;
-    }
-    /**
-     * private method which inserts the given data at the end
-     * @param data
-     * @param index
-     */
-    insertLast(data, index) {
-        let currTail = this._tail;
-        let newNode = new Node_1.Node(data, null, index);
-        this._tail = newNode;
-        if (!currTail) {
-            this._head = newNode;
-        }
-        else {
-            currTail.next = newNode;
-        }
-        this._size++;
-    }
-    /**
-     *
-     * @param data data element to be inserted
-     * @param index index at which the given element to be inserted
-     */
-    insertAt(data, index) {
-        if (index < 0 || index >= this._size)
-            throw (0, console_1.error)('Invalid index!');
-        let current = this._head;
-        let prev = null;
-        let currIndex = 0;
-        while (current && currIndex < index) {
-            prev = current;
-            current = current.next;
-            currIndex++;
-        }
-        let temp = new Node_1.Node(data, current, currIndex);
-        prev.next = temp;
-        current = current.next;
-        while (current) {
-            current.index = current.index + 1;
-            current = current.next;
-        }
-    }
-    /**
-     * prints the list
-     */
+    * prints the list
+    */
     print() {
         let s = '';
         let temp = this._head;
@@ -87,21 +30,6 @@ class LinkedList {
         }
         s = s.length > 0 ? s.concat('null') : 'empty';
         return s;
-    }
-    /**
-     * reverses the list
-     */
-    reverse() {
-        let prev = null;
-        let current = this._head;
-        while (current) {
-            let next = current.next;
-            current.next = prev;
-            prev = current;
-            current.index = this._size - current.index - 1;
-            current = next;
-        }
-        this._head = prev;
     }
     /**
      *
@@ -146,32 +74,6 @@ class LinkedList {
     }
     /**
      *
-     * @param start
-     * @param end
-     * @returns returns a new list containing the nodes from the start index to the end index (both inclusive) of the original list
-     */
-    subList(start, end) {
-        var _a;
-        if (start < 0 || end >= this._size || start > end) {
-            throw (0, console_1.error)('Invalid range indices!');
-        }
-        if (start == end) {
-            return LinkedList.create((_a = this.nodeAt(start)) === null || _a === void 0 ? void 0 : _a.value);
-        }
-        let current = this._head;
-        while (current && current.index < start) {
-            current = current.next;
-        }
-        let list = new LinkedList();
-        let count = 0;
-        while (current && current.index <= end) {
-            list.insertLast(current.value, count++);
-            current = current.next;
-        }
-        return list;
-    }
-    /**
-     *
      * @param other other list to compare to
      * @returns if the referred to list and the other list passed as argument as same in size and values
      */
@@ -204,19 +106,6 @@ class LinkedList {
         let rList = this.subList(mid, this.size - 1);
         rList.reverse();
         return lList.equals(rList);
-    }
-    /**
-     *
-     * @param  {...any} args variable number of elements to be added to the list
-     * @returns an instance of the LinkedList class, with arguments passed being represented as nodes in a sequential order
-     */
-    static create(...args) {
-        let list = new LinkedList();
-        let count = args ? args.length - 1 : 0;
-        args.slice(0).reverse().forEach(val => {
-            list.insertFirst(val, count--);
-        });
-        return list;
     }
 }
 exports.LinkedList = LinkedList;

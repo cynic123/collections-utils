@@ -1,43 +1,47 @@
-/**
- * @author Prithwish Samanta
- * a singly linked list implementation with utility methods
- */
 import { Node } from "./Node";
 /**
- * Linked List class containing head, size and other utility methods to be operated on an instance of the LinkedList class
+ * An abstract class with constructor and utility methods for regular operations on a linked list. Abstract methods
+ * have be defined in the implementating classes. Can be implemented as any form of linked lists.
  */
-export declare class LinkedList<T> {
-    private _head;
-    private _tail;
-    private _size;
-    constructor();
-    private get head();
-    get size(): number;
+export declare abstract class LinkedList<T> {
+    protected _head: Node<T> | null;
+    protected _tail: Node<T> | null;
+    protected _size: number;
+    protected constructor();
+    protected get head(): Node<T> | null;
+    protected get size(): number;
     /**
-     * private method which inserts the given data at the beginning
-     * @param data
-     */
-    private insertFirst;
+    * private method which inserts the given data at the beginning
+    * @param data
+    */
+    protected abstract insertFirst(data: T, index: number): void;
     /**
-     * private method which inserts the given data at the end
-     * @param data
-     * @param index
-     */
-    private insertLast;
+    * private method which inserts the given data at the end
+    * @param data
+    * @param index
+    */
+    protected abstract insertLast(data: T, index: number): void;
     /**
      *
      * @param data data element to be inserted
      * @param index index at which the given element to be inserted
      */
-    insertAt(data: T, index: number): void;
-    /**
-     * prints the list
-     */
-    print(): String;
+    abstract insertAt(data: T, index: number): void;
     /**
      * reverses the list
      */
-    reverse(): void;
+    abstract reverse(): void;
+    /**
+     *
+     * @param start
+     * @param end
+     * @returns returns a new list containing the nodes from the start index to the end index (both inclusive) of the original list
+     */
+    abstract subList(start: number, end: number): LinkedList<T>;
+    /**
+    * prints the list
+    */
+    print(): String;
     /**
      *
      * @returns middle node of the list
@@ -56,13 +60,6 @@ export declare class LinkedList<T> {
     toArray(): Array<number> | null;
     /**
      *
-     * @param start
-     * @param end
-     * @returns returns a new list containing the nodes from the start index to the end index (both inclusive) of the original list
-     */
-    subList(start: number, end: number): LinkedList<T>;
-    /**
-     *
      * @param other other list to compare to
      * @returns if the referred to list and the other list passed as argument as same in size and values
      */
@@ -72,10 +69,4 @@ export declare class LinkedList<T> {
      * @returns if the list is a palindrome
      */
     palindrome(): boolean;
-    /**
-     *
-     * @param  {...any} args variable number of elements to be added to the list
-     * @returns an instance of the LinkedList class, with arguments passed being represented as nodes in a sequential order
-     */
-    static create(...args: any[]): LinkedList<any>;
 }

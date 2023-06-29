@@ -1,6 +1,6 @@
-const { LinkedList } = require("./dist/LinkedList");
+const { SingleLinkedList } = require("./dist/SingleLinkedList");
 
-let list = LinkedList.create(1, 2, 3, 3, 2, 1);
+let list = SingleLinkedList.create(1, 2, 3, 3, 2, 1);
 console.log('--------------------------------------------------------');
 console.log('Current list:', list.print());
 console.log('Middle node:', list.middle().show);
@@ -26,6 +26,6 @@ list2.reverse();
 console.log('Reversed list2:', list2.print())
 console.log("Equals:", list1.equals(list2));
 console.log('--------------------------------------------------------');
-let palindromeList = LinkedList.create(1, 2, 3, 2, 1);
+let palindromeList = SingleLinkedList.create(1, 2, 3, 2, 1);
 console.log('Creating new list:', palindromeList.print());
 console.log('Palindrome:', palindromeList.palindrome());
