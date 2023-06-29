@@ -80,6 +80,7 @@ export class SingleLinkedList<T> extends LinkedList<T>{
     reverse(): void {
         let prev = null;
         let current = this._head;
+        this._tail = current;
         while (current) {
             let next = current.next;
             current.next = prev;

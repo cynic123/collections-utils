@@ -77,6 +77,7 @@ class SingleLinkedList extends LinkedList_1.LinkedList {
     reverse() {
         let prev = null;
         let current = this._head;
+        this._tail = current;
         while (current) {
             let next = current.next;
             current.next = prev;

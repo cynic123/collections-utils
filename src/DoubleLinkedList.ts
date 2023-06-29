@@ -1,3 +1,8 @@
+/**
+ * @author Prithwish Samanta
+ * a doubly linked list implementation of abstract class LinkedList 
+ */
+
 import { error } from "console";
 import { LinkedList } from "./LinkedList";
 import { Node } from "./Node";
@@ -73,6 +78,7 @@ export class DoubleLinkedList<T> extends LinkedList<T> {
     reverse(): void {
         let prev = null;
         let current = this._head;
+        this._tail = current;
         while (current) {
             let next = current.next;
             current.next = prev;
@@ -82,7 +88,6 @@ export class DoubleLinkedList<T> extends LinkedList<T> {
             current = next;
         }
         this._head = prev;
-        //todo
     }
 
     /**

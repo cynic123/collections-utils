@@ -1,3 +1,7 @@
+/**
+ * @author Prithwish Samanta
+ * a doubly linked list implementation of abstract class LinkedList
+ */
 import { LinkedList } from "./LinkedList";
 /**
  * A doubly linked list implementation of LinkedList class, with each node having references to both preceding and following

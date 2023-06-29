@@ -1,4 +1,8 @@
 "use strict";
+/**
+ * @author Prithwish Samanta
+ * a doubly linked list implementation of abstract class LinkedList
+ */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.DoubleLinkedList = void 0;
 const console_1 = require("console");
@@ -72,6 +76,7 @@ class DoubleLinkedList extends LinkedList_1.LinkedList {
     reverse() {
         let prev = null;
         let current = this._head;
+        this._tail = current;
         while (current) {
             let next = current.next;
             current.next = prev;
@@ -81,7 +86,6 @@ class DoubleLinkedList extends LinkedList_1.LinkedList {
             current = next;
         }
         this._head = prev;
-        //todo
     }
     /**
      *
