@@ -9,7 +9,8 @@
   },
   "name": "linkedlist",
   "version": "1.0.0",
-  "main": "app.js",
+  "main": "src/*.ts",
+  "types": "dist/*.d.ts",
   "dependencies": {
     "acorn": "^8.9.0",
     "acorn-walk": "^8.2.0",
@@ -27,11 +28,17 @@
     "lint": "tslint -p tsconfig.json",
     "prepare" : "npm run build",
     "prepublishOnly" : "npm run lint",
-    "preversion" : "npm run lint"
+    "preversion" : "npm run lint",
+    "version" : "npm run format && git add -A src",
+    "postversion" : "git push && git push --tags"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cynic123/LinkedList.git"
   },
   "keywords": [],
   "author": "Prithwish Samanta",
   "license": "ISC",
-  "description": "A simple JS library for Singly Linked List and its operations",
+  "description": "A simple JS library for Linked List variants and its operations",
   "files": ["dist/**/*"]
 }
