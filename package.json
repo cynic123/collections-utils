@@ -21,7 +21,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "Prithwish Samanta",
   "license": "ISC",
-  "description": ""
+  "description": "A simple JS library for Singly Linked List and its operations"
 }
