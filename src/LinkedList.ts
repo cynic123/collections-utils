@@ -254,16 +254,12 @@ export class LinkedList<T>{
         if (!this._head || !this._head.next) {
             return true;
         }
-        let mid = this.size / 2;
-        let odd = mid % 2 !== 0;
-        let lEnd = odd ? mid : mid - 1;
-        let rStart = mid;
-        let lList = this.subList(0, lEnd);
-        let rList = this.subList(rStart, this.size - 1);
+        let mid = Math.floor(this.size / 2);
+        let odd = this.size % 2 !== 0;
+        let lList = this.subList(0, odd ? mid : mid - 1);
+        let rList = this.subList(mid, this.size - 1);
         rList.reverse();
-        console.log(lList.print(), rList.print());
-        
-        return true;
+        return lList.equals(rList);
     }
 
     /**

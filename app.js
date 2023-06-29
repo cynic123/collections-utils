@@ -26,6 +26,6 @@ list2.reverse();
 console.log('Reversed list2:', list2.print())
 console.log("Equals:", list1.equals(list2));
 console.log('--------------------------------------------------------');
-let palindromeList = LinkedList.create(1, 2, 3, 4, 2, 1);
+let palindromeList = LinkedList.create(1, 2, 3, 2, 1);
 console.log('Creating new list:', palindromeList.print());
 console.log('Palindrome:', palindromeList.palindrome());
