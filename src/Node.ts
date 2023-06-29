@@ -4,7 +4,8 @@
  */
 
 /**
- * Node class with value, next (next node reference) and index of the node, when added in a LinkedList instance. 
+ * Node class with value, prev (preceding node reference), next (following node reference) and index of the node, when added 
+ * in a LinkedList instance. 
  */
 export class Node<T> {
     private _value: T | any;

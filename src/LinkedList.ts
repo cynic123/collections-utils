@@ -25,13 +25,13 @@ export abstract class LinkedList<T> {
     }
 
     /**
-    * private method which inserts the given data at the beginning
+    * method which inserts the given data at the beginning
     * @param data 
     */
     protected abstract insertFirst(data: T, index: number): void;
 
     /**
-    * private method which inserts the given data at the end
+    * method which inserts the given data at the end
     * @param data 
     * @param index 
     */

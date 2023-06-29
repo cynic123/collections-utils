@@ -1,43 +1,39 @@
 "use strict";
-/**
- * @author Prithwish Samanta
- * a singly linked list implementation of abstract class LinkedList
- */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.SingleLinkedList = void 0;
+exports.DoubleLinkedList = void 0;
 const console_1 = require("console");
-const Node_1 = require("./Node");
 const LinkedList_1 = require("./LinkedList");
+const Node_1 = require("./Node");
 /**
- * A singly linked list implementation of LinkedList class, with each node having references to only the following node
+ * A doubly linked list implementation of LinkedList class, with each node having references to both preceding and following
+ * nodes
  */
-class SingleLinkedList extends LinkedList_1.LinkedList {
+class DoubleLinkedList extends LinkedList_1.LinkedList {
     constructor() {
         super();
     }
-    get head() {
-        return this._head;
-    }
     /**
-     * method which inserts the given data at the beginning
-     * @param data
-     */
+    * method which inserts the given data at the beginning
+    * @param data
+    */
     insertFirst(data, index) {
         let currHead = this._head;
         let newNode = new Node_1.Node(data, currHead, index);
         this._head = newNode;
         if (!currHead)
             this._tail = newNode;
+        else
+            currHead.prev = newNode;
         this._size++;
     }
     /**
-     * method which inserts the given data at the end
-     * @param data
-     * @param index
-     */
+    * method which inserts the given data at the end
+    * @param data
+    * @param index
+    */
     insertLast(data, index) {
         let currTail = this._tail;
-        let newNode = new Node_1.Node(data, null, index);
+        let newNode = new Node_1.Node(data, null, index, currTail);
         this._tail = newNode;
         if (!currTail) {
             this._head = newNode;
@@ -56,14 +52,13 @@ class SingleLinkedList extends LinkedList_1.LinkedList {
         if (index < 0 || index >= this._size)
             throw (0, console_1.error)('Invalid index!');
         let current = this._head;
-        let prev = null;
         let currIndex = 0;
         while (current && currIndex < index) {
-            prev = current;
             current = current.next;
             currIndex++;
         }
-        let temp = new Node_1.Node(data, current, currIndex);
+        let prev = current.prev;
+        let temp = new Node_1.Node(data, current, currIndex, prev);
         prev.next = temp;
         current = current.next;
         while (current) {
@@ -80,11 +75,13 @@ class SingleLinkedList extends LinkedList_1.LinkedList {
         while (current) {
             let next = current.next;
             current.next = prev;
+            current.prev = next;
             prev = current;
             current.index = this._size - current.index - 1;
             current = next;
         }
         this._head = prev;
+        //todo
     }
     /**
      *
@@ -98,13 +95,13 @@ class SingleLinkedList extends LinkedList_1.LinkedList {
             throw (0, console_1.error)('Invalid range indices!');
         }
         if (start == end) {
-            return SingleLinkedList.create((_a = this.nodeAt(start)) === null || _a === void 0 ? void 0 : _a.value);
+            return DoubleLinkedList.create((_a = this.nodeAt(start)) === null || _a === void 0 ? void 0 : _a.value);
         }
         let current = this._head;
         while (current && current.index < start) {
             current = current.next;
         }
-        let list = new SingleLinkedList();
+        let list = new DoubleLinkedList();
         let count = 0;
         while (current && current.index <= end) {
             list.insertLast(current.value, count++);
@@ -115,10 +112,10 @@ class SingleLinkedList extends LinkedList_1.LinkedList {
     /**
      *
      * @param  {...any} args variable number of elements to be added to the list
-     * @returns an instance of the SingleLinkedList class, with arguments passed being represented as nodes in a sequential order
+     * @returns an instance of the DoubleLinkedList class, with arguments passed being represented as nodes in a sequential order
      */
     static create(...args) {
-        let list = new SingleLinkedList();
+        let list = new DoubleLinkedList();
         let count = args ? args.length - 1 : 0;
         args.slice(0).reverse().forEach(val => {
             list.insertFirst(val, count--);
@@ -126,4 +123,4 @@ class SingleLinkedList extends LinkedList_1.LinkedList {
         return list;
     }
 }
-exports.SingleLinkedList = SingleLinkedList;
+exports.DoubleLinkedList = DoubleLinkedList;

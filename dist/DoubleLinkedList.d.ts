@@ -1,25 +1,20 @@
-/**
- * @author Prithwish Samanta
- * a singly linked list implementation of abstract class LinkedList
- */
-import { Node } from "./Node";
 import { LinkedList } from "./LinkedList";
 /**
- * A singly linked list implementation of LinkedList class, with each node having references to only the following node
+ * A doubly linked list implementation of LinkedList class, with each node having references to both preceding and following
+ * nodes
  */
-export declare class SingleLinkedList<T> extends LinkedList<T> {
+export declare class DoubleLinkedList<T> extends LinkedList<T> {
     constructor();
-    get head(): Node<T> | null;
     /**
-     * method which inserts the given data at the beginning
-     * @param data
-     */
+    * method which inserts the given data at the beginning
+    * @param data
+    */
     protected insertFirst(data: T, index: number): void;
     /**
-     * method which inserts the given data at the end
-     * @param data
-     * @param index
-     */
+    * method which inserts the given data at the end
+    * @param data
+    * @param index
+    */
     protected insertLast(data: T, index: number): void;
     /**
      *
@@ -41,7 +36,7 @@ export declare class SingleLinkedList<T> extends LinkedList<T> {
     /**
      *
      * @param  {...any} args variable number of elements to be added to the list
-     * @returns an instance of the SingleLinkedList class, with arguments passed being represented as nodes in a sequential order
+     * @returns an instance of the DoubleLinkedList class, with arguments passed being represented as nodes in a sequential order
      */
     static create(...args: any[]): LinkedList<any>;
 }

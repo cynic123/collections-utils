@@ -8,7 +8,7 @@ import { Node } from "./Node";
 import { LinkedList } from "./LinkedList";
 
 /**
- * Linked List class containing head, size and other utility methods to be operated on an instance of the LinkedList class
+ * A singly linked list implementation of LinkedList class, with each node having references to only the following node
  */
 export class SingleLinkedList<T> extends LinkedList<T>{
     constructor() {
@@ -20,7 +20,7 @@ export class SingleLinkedList<T> extends LinkedList<T>{
     }
 
     /**
-     * private method which inserts the given data at the beginning
+     * method which inserts the given data at the beginning
      * @param data 
      */
     protected insertFirst(data: T, index: number): void {
@@ -33,7 +33,7 @@ export class SingleLinkedList<T> extends LinkedList<T>{
     }
 
     /**
-     * private method which inserts the given data at the end
+     * method which inserts the given data at the end
      * @param data 
      * @param index 
      */
@@ -92,50 +92,6 @@ export class SingleLinkedList<T> extends LinkedList<T>{
 
     /**
      * 
-     * @returns middle node of the list
-     */
-    middle(): Node<T> | null {
-        let slow: Node<T> | any = this._head;
-        let fast: Node<T> | any = this._head;
-        while (fast && fast.next) {
-            slow = slow.next;
-            fast = fast.next.next;
-        }
-        return slow;
-    }
-
-    /**
-     * 
-     * @param index 
-     * @returns node at the specified index
-     */
-    nodeAt(index: number): Node<T> | null {
-        if (index < 0 || index >= this._size) {
-            throw error('Invalid index!');
-        }
-        let current = this._head;
-        while (current && current.index != index) {
-            current = current.next;
-        }
-        return current;
-    }
-
-    /**
-     * 
-     * @returns returns a new array containing the elements of linked list in their original order
-     */
-    toArray(): Array<number> | null {
-        let current: Node<T> | null = this._head;
-        let arr: number[] = [];
-        while (current) {
-            arr[current.index] = current.value;
-            current = current.next;
-        }
-        return arr;
-    }
-
-    /**
-     * 
      * @param start 
      * @param end 
      * @returns returns a new list containing the nodes from the start index to the end index (both inclusive) of the original list
@@ -163,7 +119,7 @@ export class SingleLinkedList<T> extends LinkedList<T>{
     /**
      * 
      * @param  {...any} args variable number of elements to be added to the list
-     * @returns an instance of the LinkedList class, with arguments passed being represented as nodes in a sequential order
+     * @returns an instance of the SingleLinkedList class, with arguments passed being represented as nodes in a sequential order
      */
     static create(...args: any[]): LinkedList<any> {
         let list = new SingleLinkedList();

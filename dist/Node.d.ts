@@ -3,7 +3,8 @@
  * a class which represents the basic element of a linked list.
  */
 /**
- * Node class with value, next (next node reference) and index of the node, when added in a LinkedList instance.
+ * Node class with value, prev (preceding node reference), next (following node reference) and index of the node, when added
+ * in a LinkedList instance.
  */
 export declare class Node<T> {
     private _value;
