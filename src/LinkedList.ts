@@ -4,49 +4,7 @@
  */
 
 import { error } from "console";
-
-/**
- * Node class with value, next (next node reference) and index of the node, when added in a LinkedList instance. 
- */
-class Node<T> {
-    private _value: T | any;
-    private _next: Node<T> | null;
-    private _index: number;
-
-    constructor(value: T, next: Node<T> | null, index: number) {
-        this._value = value;
-        this._next = next;
-        this._index = index;
-    }
-
-    get value(): T | any {
-        return this._value;
-    }
-
-    set value(v: T | any) {
-        this._value = v;
-    }
-
-    get next(): Node<T> | null {
-        return this._next;
-    }
-
-    set next(node: Node<T> | null) {
-        this._next = node;
-    }
-
-    get index(): number {
-        return this._index;
-    }
-
-    set index(v: number) {
-        this._index = v;
-    }
-
-    get show(): Object {
-        return { value: this._value, index: this._index, next: this._next != null ? this._next.show : null };
-    }
-}
+import { Node } from "./Node";
 
 /**
  * Linked List class containing head, size and other utility methods to be operated on an instance of the LinkedList class

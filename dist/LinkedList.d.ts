@@ -2,22 +2,7 @@
  * @author Prithwish Samanta
  * a singly linked list implementation with utility methods
  */
-/**
- * Node class with value, next (next node reference) and index of the node, when added in a LinkedList instance.
- */
-declare class Node<T> {
-    private _value;
-    private _next;
-    private _index;
-    constructor(value: T, next: Node<T> | null, index: number);
-    get value(): T | any;
-    set value(v: T | any);
-    get next(): Node<T> | null;
-    set next(node: Node<T> | null);
-    get index(): number;
-    set index(v: number);
-    get show(): Object;
-}
+import { Node } from "./Node";
 /**
  * Linked List class containing head, size and other utility methods to be operated on an instance of the LinkedList class
  */
@@ -94,4 +79,3 @@ export declare class LinkedList<T> {
      */
     static create(...args: any[]): LinkedList<any>;
 }
-export {};

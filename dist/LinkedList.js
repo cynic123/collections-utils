@@ -6,37 +6,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.LinkedList = void 0;
 const console_1 = require("console");
-/**
- * Node class with value, next (next node reference) and index of the node, when added in a LinkedList instance.
- */
-class Node {
-    constructor(value, next, index) {
-        this._value = value;
-        this._next = next;
-        this._index = index;
-    }
-    get value() {
-        return this._value;
-    }
-    set value(v) {
-        this._value = v;
-    }
-    get next() {
-        return this._next;
-    }
-    set next(node) {
-        this._next = node;
-    }
-    get index() {
-        return this._index;
-    }
-    set index(v) {
-        this._index = v;
-    }
-    get show() {
-        return { value: this._value, index: this._index, next: this._next != null ? this._next.show : null };
-    }
-}
+const Node_1 = require("./Node");
 /**
  * Linked List class containing head, size and other utility methods to be operated on an instance of the LinkedList class
  */
@@ -58,7 +28,7 @@ class LinkedList {
      */
     insertFirst(data, index) {
         let currHead = this._head;
-        let newNode = new Node(data, currHead, index);
+        let newNode = new Node_1.Node(data, currHead, index);
         this._head = newNode;
         if (!currHead)
             this._tail = newNode;
@@ -71,7 +41,7 @@ class LinkedList {
      */
     insertLast(data, index) {
         let currTail = this._tail;
-        let newNode = new Node(data, null, index);
+        let newNode = new Node_1.Node(data, null, index);
         this._tail = newNode;
         if (!currTail) {
             this._head = newNode;
@@ -97,7 +67,7 @@ class LinkedList {
             current = current.next;
             currIndex++;
         }
-        let temp = new Node(data, current, currIndex);
+        let temp = new Node_1.Node(data, current, currIndex);
         prev.next = temp;
         current = current.next;
         while (current) {
