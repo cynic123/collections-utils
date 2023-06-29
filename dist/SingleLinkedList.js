@@ -23,8 +23,8 @@ class SingleLinkedList extends LinkedList_1.LinkedList {
      * @param data
      */
     insertFirst(data, index) {
-        let currHead = this._head;
-        let newNode = new Node_1.Node(data, currHead, index);
+        const currHead = this._head;
+        const newNode = new Node_1.Node(data, currHead, index);
         this._head = newNode;
         if (!currHead)
             this._tail = newNode;
@@ -36,8 +36,8 @@ class SingleLinkedList extends LinkedList_1.LinkedList {
      * @param index
      */
     insertLast(data, index) {
-        let currTail = this._tail;
-        let newNode = new Node_1.Node(data, null, index);
+        const currTail = this._tail;
+        const newNode = new Node_1.Node(data, null, index);
         this._tail = newNode;
         if (!currTail) {
             this._head = newNode;
@@ -54,7 +54,7 @@ class SingleLinkedList extends LinkedList_1.LinkedList {
      */
     insertAt(data, index) {
         if (index < 0 || index >= this._size)
-            throw (0, console_1.error)('Invalid index!');
+            throw (0, console_1.error)("Invalid index!");
         let current = this._head;
         let prev = null;
         let currIndex = 0;
@@ -63,7 +63,7 @@ class SingleLinkedList extends LinkedList_1.LinkedList {
             current = current.next;
             currIndex++;
         }
-        let temp = new Node_1.Node(data, current, currIndex);
+        const temp = new Node_1.Node(data, current, currIndex);
         prev.next = temp;
         current = current.next;
         while (current) {
@@ -79,7 +79,7 @@ class SingleLinkedList extends LinkedList_1.LinkedList {
         let current = this._head;
         this._tail = current;
         while (current) {
-            let next = current.next;
+            const next = current.next;
             current.next = prev;
             prev = current;
             current.index = this._size - current.index - 1;
@@ -96,16 +96,16 @@ class SingleLinkedList extends LinkedList_1.LinkedList {
     subList(start, end) {
         var _a;
         if (start < 0 || end >= this._size || start > end) {
-            throw (0, console_1.error)('Invalid range indices!');
+            throw (0, console_1.error)("Invalid range indices!");
         }
-        if (start == end) {
+        if (start === end) {
             return SingleLinkedList.create((_a = this.nodeAt(start)) === null || _a === void 0 ? void 0 : _a.value);
         }
         let current = this._head;
         while (current && current.index < start) {
             current = current.next;
         }
-        let list = new SingleLinkedList();
+        const list = new SingleLinkedList();
         let count = 0;
         while (current && current.index <= end) {
             list.insertLast(current.value, count++);
@@ -119,9 +119,12 @@ class SingleLinkedList extends LinkedList_1.LinkedList {
      * @returns an instance of the SingleLinkedList class, with arguments passed being represented as nodes in a sequential order
      */
     static create(...args) {
-        let list = new SingleLinkedList();
+        const list = new SingleLinkedList();
         let count = args ? args.length - 1 : 0;
-        args.slice(0).reverse().forEach(val => {
+        args
+            .slice(0)
+            .reverse()
+            .forEach((val) => {
             list.insertFirst(val, count--);
         });
         return list;

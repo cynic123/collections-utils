@@ -10,15 +10,15 @@ import { LinkedList } from "./LinkedList";
 export declare class DoubleLinkedList<T> extends LinkedList<T> {
     constructor();
     /**
-    * method which inserts the given data at the beginning
-    * @param data
-    */
+     * method which inserts the given data at the beginning
+     * @param data
+     */
     protected insertFirst(data: T, index: number): void;
     /**
-    * method which inserts the given data at the end
-    * @param data
-    * @param index
-    */
+     * method which inserts the given data at the end
+     * @param data
+     * @param index
+     */
     protected insertLast(data: T, index: number): void;
     /**
      *

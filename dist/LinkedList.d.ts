@@ -11,15 +11,15 @@ export declare abstract class LinkedList<T> {
     protected get head(): Node<T> | null;
     protected get size(): number;
     /**
-    * method which inserts the given data at the beginning
-    * @param data
-    */
+     * method which inserts the given data at the beginning
+     * @param data
+     */
     protected abstract insertFirst(data: T, index: number): void;
     /**
-    * method which inserts the given data at the end
-    * @param data
-    * @param index
-    */
+     * method which inserts the given data at the end
+     * @param data
+     * @param index
+     */
     protected abstract insertLast(data: T, index: number): void;
     /**
      *
@@ -39,9 +39,9 @@ export declare abstract class LinkedList<T> {
      */
     abstract subList(start: number, end: number): LinkedList<T>;
     /**
-    * prints the list
-    */
-    print(): String;
+     * prints the list
+     */
+    print(): string;
     /**
      *
      * @returns middle node of the list
@@ -57,7 +57,7 @@ export declare abstract class LinkedList<T> {
      *
      * @returns returns a new array containing the elements of linked list in their original order
      */
-    toArray(): Array<number> | null;
+    toArray(): number[] | null;
     /**
      *
      * @param other other list to compare to

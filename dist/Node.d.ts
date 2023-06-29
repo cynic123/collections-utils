@@ -20,5 +20,5 @@ export declare class Node<T> {
     set index(v: number);
     get prev(): Node<T> | null;
     set prev(node: Node<T> | null);
-    get show(): Object;
+    get show(): object;
 }

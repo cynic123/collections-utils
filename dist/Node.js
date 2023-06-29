@@ -41,7 +41,11 @@ class Node {
         this._prev = node;
     }
     get show() {
-        return { value: this._value, index: this._index, next: this._next != null ? this._next.show : null };
+        return {
+            value: this._value,
+            index: this._index,
+            next: this._next != null ? this._next.show : null,
+        };
     }
 }
 exports.Node = Node;

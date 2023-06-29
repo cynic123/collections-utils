@@ -1,10 +1,13 @@
 {
   "devDependencies": {
     "@types/node": "^20.3.1",
+    "prettier": "^2.8.8",
     "ts-node": "^10.9.1",
+    "tslint": "^6.1.3",
+    "tslint-config-prettier": "^1.18.0",
     "typescript": "^5.1.3"
   },
-  "name": "collections",
+  "name": "linkedlist",
   "version": "1.0.0",
   "main": "app.js",
   "dependencies": {
@@ -18,10 +21,17 @@
     "yn": "^3.1.1"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "format": "prettier --write \"src/**/*.ts\" \"dist/**/*.js\"",
+    "lint": "tslint -p tsconfig.json",
+    "prepare" : "npm run build",
+    "prepublishOnly" : "npm run lint",
+    "preversion" : "npm run lint"
   },
   "keywords": [],
   "author": "Prithwish Samanta",
   "license": "ISC",
-  "description": "A simple JS library for Singly Linked List and its operations"
+  "description": "A simple JS library for Singly Linked List and its operations",
+  "files": ["dist/**/*"]
 }
