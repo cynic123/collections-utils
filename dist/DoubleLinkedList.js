@@ -3,16 +3,20 @@
  * @author Prithwish Samanta
  * a doubly linked list implementation of abstract class LinkedList
  */
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.DoubleLinkedList = void 0;
 const console_1 = require("console");
-const LinkedList_1 = require("./LinkedList");
-const Node_1 = require("./Node");
+const LinkedList_1 = __importDefault(require("./LinkedList"));
+const Node_1 = __importDefault(require("./Node"));
 /**
  * A doubly linked list implementation of LinkedList class, with each node having references to both preceding and following
  * nodes
  */
-class DoubleLinkedList extends LinkedList_1.LinkedList {
+class DoubleLinkedList extends LinkedList_1.default {
   constructor() {
     super();
   }
@@ -22,7 +26,7 @@ class DoubleLinkedList extends LinkedList_1.LinkedList {
    */
   insertFirst(data, index) {
     const currHead = this._head;
-    const newNode = new Node_1.Node(data, currHead, index);
+    const newNode = new Node_1.default(data, currHead, index);
     this._head = newNode;
     if (!currHead) this._tail = newNode;
     else currHead.prev = newNode;
@@ -35,7 +39,7 @@ class DoubleLinkedList extends LinkedList_1.LinkedList {
    */
   insertLast(data, index) {
     const currTail = this._tail;
-    const newNode = new Node_1.Node(data, null, index, currTail);
+    const newNode = new Node_1.default(data, null, index, currTail);
     this._tail = newNode;
     if (!currTail) {
       this._head = newNode;
@@ -59,7 +63,7 @@ class DoubleLinkedList extends LinkedList_1.LinkedList {
       currIndex++;
     }
     const prev = current.prev;
-    const temp = new Node_1.Node(data, current, currIndex, prev);
+    const temp = new Node_1.default(data, current, currIndex, prev);
     prev.next = temp;
     current = current.next;
     while (current) {
@@ -129,4 +133,4 @@ class DoubleLinkedList extends LinkedList_1.LinkedList {
     return list;
   }
 }
-exports.DoubleLinkedList = DoubleLinkedList;
+exports.default = DoubleLinkedList;

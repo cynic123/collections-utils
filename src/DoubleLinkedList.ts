@@ -4,14 +4,14 @@
  */
 
 import { error } from "console";
-import { LinkedList } from "./LinkedList";
-import { Node } from "./Node";
+import LinkedList from "./LinkedList";
+import Node from "./Node";
 
 /**
  * A doubly linked list implementation of LinkedList class, with each node having references to both preceding and following
  * nodes
  */
-export class DoubleLinkedList<T> extends LinkedList<T> {
+export default class DoubleLinkedList<T> extends LinkedList<T> {
   constructor() {
     super();
   }

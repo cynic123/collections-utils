@@ -4,13 +4,13 @@
  */
 
 import { error } from "console";
-import { Node } from "./Node";
-import { LinkedList } from "./LinkedList";
+import LinkedList from "./LinkedList";
+import Node from "./Node";
 
 /**
  * A singly linked list implementation of LinkedList class, with each node having references to only the following node
  */
-export class SingleLinkedList<T> extends LinkedList<T> {
+export default class SingleLinkedList<T> extends LinkedList<T> {
   constructor() {
     super();
   }

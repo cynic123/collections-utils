@@ -1,6 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.LinkedList = void 0;
 const console_1 = require("console");
 /**
  * An abstract class with constructor and utility methods for regular operations on a linked list. Abstract methods
@@ -106,4 +105,4 @@ class LinkedList {
     return lList.equals(rList);
   }
 }
-exports.LinkedList = LinkedList;
+exports.default = LinkedList;

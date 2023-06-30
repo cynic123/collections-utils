@@ -6,7 +6,7 @@
  * Node class with value, prev (preceding node reference), next (following node reference) and index of the node, when added
  * in a LinkedList instance.
  */
-export declare class Node<T> {
+export default class Node<T> {
     private _value;
     private _next;
     private _index;

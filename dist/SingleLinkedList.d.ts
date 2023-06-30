@@ -2,12 +2,12 @@
  * @author Prithwish Samanta
  * a singly linked list implementation of abstract class LinkedList
  */
-import { Node } from "./Node";
-import { LinkedList } from "./LinkedList";
+import LinkedList from "./LinkedList";
+import Node from "./Node";
 /**
  * A singly linked list implementation of LinkedList class, with each node having references to only the following node
  */
-export declare class SingleLinkedList<T> extends LinkedList<T> {
+export default class SingleLinkedList<T> extends LinkedList<T> {
     constructor();
     get head(): Node<T> | null;
     /**

@@ -1,9 +1,9 @@
-import { Node } from "./Node";
+import Node from "./Node";
 /**
  * An abstract class with constructor and utility methods for regular operations on a linked list. Abstract methods
  * have be defined in the implementating classes. Can be implemented as any form of linked lists.
  */
-export declare abstract class LinkedList<T> {
+export default abstract class LinkedList<T> {
     protected _head: Node<T> | null;
     protected _tail: Node<T> | null;
     protected _size: number;

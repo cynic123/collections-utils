@@ -3,15 +3,19 @@
  * @author Prithwish Samanta
  * a singly linked list implementation of abstract class LinkedList
  */
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.SingleLinkedList = void 0;
 const console_1 = require("console");
-const Node_1 = require("./Node");
-const LinkedList_1 = require("./LinkedList");
+const LinkedList_1 = __importDefault(require("./LinkedList"));
+const Node_1 = __importDefault(require("./Node"));
 /**
  * A singly linked list implementation of LinkedList class, with each node having references to only the following node
  */
-class SingleLinkedList extends LinkedList_1.LinkedList {
+class SingleLinkedList extends LinkedList_1.default {
   constructor() {
     super();
   }
@@ -24,7 +28,7 @@ class SingleLinkedList extends LinkedList_1.LinkedList {
    */
   insertFirst(data, index) {
     const currHead = this._head;
-    const newNode = new Node_1.Node(data, currHead, index);
+    const newNode = new Node_1.default(data, currHead, index);
     this._head = newNode;
     if (!currHead) this._tail = newNode;
     this._size++;
@@ -36,7 +40,7 @@ class SingleLinkedList extends LinkedList_1.LinkedList {
    */
   insertLast(data, index) {
     const currTail = this._tail;
-    const newNode = new Node_1.Node(data, null, index);
+    const newNode = new Node_1.default(data, null, index);
     this._tail = newNode;
     if (!currTail) {
       this._head = newNode;
@@ -61,7 +65,7 @@ class SingleLinkedList extends LinkedList_1.LinkedList {
       current = current.next;
       currIndex++;
     }
-    const temp = new Node_1.Node(data, current, currIndex);
+    const temp = new Node_1.default(data, current, currIndex);
     prev.next = temp;
     current = current.next;
     while (current) {
@@ -130,4 +134,4 @@ class SingleLinkedList extends LinkedList_1.LinkedList {
     return list;
   }
 }
-exports.SingleLinkedList = SingleLinkedList;
+exports.default = SingleLinkedList;

@@ -4,7 +4,6 @@
  * a class which represents the basic element of a linked list.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Node = void 0;
 /**
  * Node class with value, prev (preceding node reference), next (following node reference) and index of the node, when added
  * in a LinkedList instance.
@@ -48,4 +47,4 @@ class Node {
     };
   }
 }
-exports.Node = Node;
+exports.default = Node;
