@@ -40,5 +40,5 @@
   "author": "Prithwish Samanta",
   "license": "ISC",
   "description": "A simple JS library for Linked List variants and its operations",
-  "files": ["dist/**/*"]
+  "files": ["dist/*"]
 }
