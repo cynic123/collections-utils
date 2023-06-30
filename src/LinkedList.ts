@@ -136,7 +136,7 @@ export abstract class LinkedList<T> {
 
   /**
    *
-   * @returns if the list is a palindrome
+   * @returns true if the list is a palindrome, else false
    */
   palindrome(): boolean {
     if (!this._head || !this._head.next) {

@@ -66,7 +66,7 @@ export declare abstract class LinkedList<T> {
     equals(other: LinkedList<T>): boolean;
     /**
      *
-     * @returns if the list is a palindrome
+     * @returns true if the list is a palindrome, else false
      */
     palindrome(): boolean;
 }

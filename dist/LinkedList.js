@@ -94,7 +94,7 @@ class LinkedList {
     }
     /**
      *
-     * @returns if the list is a palindrome
+     * @returns true if the list is a palindrome, else false
      */
     palindrome() {
         if (!this._head || !this._head.next) {
