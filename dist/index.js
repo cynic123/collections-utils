@@ -5,13 +5,16 @@ var __importDefault =
     return mod && mod.__esModule ? mod : { default: mod };
   };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.SingleLinkedList =
+  exports.Node =
+  exports.LinkedList =
+  exports.DoubleLinkedList =
+    void 0;
 const DoubleLinkedList_1 = __importDefault(require("./DoubleLinkedList"));
+exports.DoubleLinkedList = DoubleLinkedList_1.default;
 const LinkedList_1 = __importDefault(require("./LinkedList"));
+exports.LinkedList = LinkedList_1.default;
 const Node_1 = __importDefault(require("./Node"));
+exports.Node = Node_1.default;
 const SingleLinkedList_1 = __importDefault(require("./SingleLinkedList"));
-exports.default = {
-  LinkedList: LinkedList_1.default,
-  Node: Node_1.default,
-  DoubleLinkedList: DoubleLinkedList_1.default,
-  SingleLinkedList: SingleLinkedList_1.default,
-};
+exports.SingleLinkedList = SingleLinkedList_1.default;

@@ -1,5 +1,4 @@
-const { default: DoubleLinkedList } = require("./dist/DoubleLinkedList");
-const { default: SingleLinkedList } = require("./dist/SingleLinkedList");
+const { SingleLinkedList, DoubleLinkedList } = require("./dist");
 
 let list = SingleLinkedList.create(1, 2, 3, 4, 5, 6);
 console.log('--------------------------------------------------------');

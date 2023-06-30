@@ -3,4 +3,4 @@ import LinkedList from "./LinkedList";
 import Node from "./Node";
 import SingleLinkedList from "./SingleLinkedList";
 
-export default { LinkedList, Node, DoubleLinkedList, SingleLinkedList };
+export { DoubleLinkedList, LinkedList, Node, SingleLinkedList };
