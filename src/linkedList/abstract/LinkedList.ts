@@ -1,18 +1,14 @@
 /**
  * @author Prithwish Samanta
- * a singly linked list implementation of abstract class LinkedList
+ * an abstract class defining a linked list data structure and its common operations
  */
 
 import { error } from "console";
-import Node from "./Node";
+import LinkedNode from "../../node/LinkedNode";
 
-/**
- * An abstract class with constructor and utility methods for regular operations on a linked list. Abstract methods
- * have be defined in the implementating classes. Can be implemented as any form of linked lists.
- */
 export default abstract class LinkedList<T> {
-  protected _head: Node<T> | null;
-  protected _tail: Node<T> | null;
+  protected _head: LinkedNode<T> | null;
+  protected _tail: LinkedNode<T> | null;
   protected _size: number;
 
   protected constructor() {
@@ -21,7 +17,7 @@ export default abstract class LinkedList<T> {
     this._size = 0;
   }
 
-  protected get head(): Node<T> | null {
+  protected get head(): LinkedNode<T> | null {
     return this._head;
   }
 
@@ -62,8 +58,12 @@ export default abstract class LinkedList<T> {
    */
   protected abstract subList(start: number, end: number): LinkedList<T>;
 
+  isEmpty(): boolean {
+    return this._size === 0;
+  }
+
   /**
-   * 
+   *
    * @returns the value of the head element of the list if present, otherwise undefined
    */
   getFirst(): T | any {
@@ -71,7 +71,7 @@ export default abstract class LinkedList<T> {
   }
 
   /**
-   * 
+   *
    * @returns the value of the tail element of the list if present, otherwise undefined
    */
   getLast(): T | any {
@@ -96,9 +96,9 @@ export default abstract class LinkedList<T> {
    *
    * @returns middle node of the list
    */
-  protected middle(): Node<T> | null {
-    let slow: Node<T> | any = this._head;
-    let fast: Node<T> | any = this._head;
+  middle(): LinkedNode<T> | null {
+    let slow: LinkedNode<T> | any = this._head;
+    let fast: LinkedNode<T> | any = this._head;
     while (fast && fast.next) {
       slow = slow.next;
       fast = fast.next.next;
@@ -111,7 +111,7 @@ export default abstract class LinkedList<T> {
    * @param index
    * @returns node at the specified index
    */
-  protected nodeAt(index: number): Node<T> | null {
+  protected nodeAt(index: number): LinkedNode<T> | null {
     if (index < 0 || index >= this._size) {
       throw error("Invalid index!");
     }
@@ -127,7 +127,7 @@ export default abstract class LinkedList<T> {
    * @returns returns a new array containing the elements of linked list in their original order
    */
   toArray(): number[] | null {
-    let current: Node<T> | null = this._head;
+    let current: LinkedNode<T> | null = this._head;
     const arr: number[] = [];
     while (current) {
       arr[current.index] = current.value;

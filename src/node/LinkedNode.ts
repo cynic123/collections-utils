@@ -1,23 +1,23 @@
 /**
  * @author Prithwish Samanta
- * a class which represents the basic element of a linked list.
+ * a class representing the basic node element of a linked list.
  */
 
 /**
- * Node class with value, prev (preceding node reference), next (following node reference) and index of the node, when added
- * in a LinkedList instance.
+ * Node class with properties - value, prev (preceding node reference), next (following node reference) and index of the node
+ * in a LinkedList instance
  */
-export default class Node<T> {
+export default class LinkedNode<T> {
   private _value: T | any;
-  private _next: Node<T> | null;
+  private _next: LinkedNode<T> | null;
   private _index: number;
-  private _prev: Node<T> | null;
+  private _prev: LinkedNode<T> | null;
 
   constructor(
     value: T,
-    next: Node<T> | null,
+    next: LinkedNode<T> | null,
     index: number,
-    prev: Node<T> | null = null
+    prev: LinkedNode<T> | null = null
   ) {
     this._value = value;
     this._next = next;
@@ -33,11 +33,11 @@ export default class Node<T> {
     this._value = v;
   }
 
-  get next(): Node<T> | null {
+  get next(): LinkedNode<T> | null {
     return this._next;
   }
 
-  set next(node: Node<T> | null) {
+  set next(node: LinkedNode<T> | null) {
     this._next = node;
   }
 
@@ -49,11 +49,11 @@ export default class Node<T> {
     this._index = v;
   }
 
-  get prev(): Node<T> | null {
+  get prev(): LinkedNode<T> | null {
     return this._prev;
   }
 
-  set prev(node: Node<T> | null) {
+  set prev(node: LinkedNode<T> | null) {
     this._prev = node;
   }
 

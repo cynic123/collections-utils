@@ -23,8 +23,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc && prettier --write \"src/*.ts\" \"dist/*.js\" && tslint -p tsconfig.json",
-    "format": "prettier --write \"src/*.ts\" \"dist/*.js\"",
+    "build": "tsc && prettier --write \"src/**/*\" \"dist/**/*\" && tslint -p tsconfig.json",
+    "format": "prettier --write \"src/**/*\" \"dist/**/*\"",
     "lint": "tslint -p tsconfig.json",
     "prepare": "npm run build",
     "prepublishOnly": "npm run lint",

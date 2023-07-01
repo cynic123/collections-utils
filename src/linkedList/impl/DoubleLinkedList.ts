@@ -1,22 +1,19 @@
 /**
  * @author Prithwish Samanta
- * a singly linked list implementation of abstract class LinkedList
+ * a doubly linked list implementation of abstract class LinkedList
  */
 
 import { error } from "console";
-import LinkedList from "./LinkedList";
-import Node from "./Node";
+import LinkedList from "../abstract/LinkedList";
+import LinkedNode from "../../node/LinkedNode";
 
 /**
- * A singly linked list implementation of LinkedList class, with each node having references to only the following node
+ * A doubly linked list implementation of LinkedList class, with each node having references to both preceding and following
+ * nodes
  */
-export default class SingleLinkedList<T> extends LinkedList<T> {
+export default class DoubleLinkedList<T> extends LinkedList<T> {
   constructor() {
     super();
-  }
-
-  get head() {
-    return this._head;
   }
 
   /**
@@ -25,9 +22,10 @@ export default class SingleLinkedList<T> extends LinkedList<T> {
    */
   protected insertFirst(data: T, index: number): void {
     const currHead = this._head;
-    const newNode = new Node(data, currHead, index);
+    const newNode = new LinkedNode(data, currHead, index);
     this._head = newNode;
     if (!currHead) this._tail = newNode;
+    else currHead.prev = newNode;
     this._size++;
   }
 
@@ -38,7 +36,7 @@ export default class SingleLinkedList<T> extends LinkedList<T> {
    */
   protected insertLast(data: T, index: number): void {
     const currTail = this._tail;
-    const newNode = new Node(data, null, index);
+    const newNode = new LinkedNode(data, null, index, currTail);
     this._tail = newNode;
     if (!currTail) {
       this._head = newNode;
@@ -55,15 +53,14 @@ export default class SingleLinkedList<T> extends LinkedList<T> {
    */
   insertAt(data: T, index: number): void {
     if (index < 0 || index >= this._size) throw error("Invalid index!");
-    let current: Node<T> | any = this._head;
-    let prev: Node<T> | any = null;
+    let current: LinkedNode<T> | any = this._head;
     let currIndex = 0;
     while (current && currIndex < index) {
-      prev = current;
       current = current.next;
       currIndex++;
     }
-    const temp = new Node(data, current, currIndex);
+    const prev = current.prev;
+    const temp = new LinkedNode(data, current, currIndex, prev);
     prev.next = temp;
     current = current.next;
     while (current) {
@@ -82,6 +79,7 @@ export default class SingleLinkedList<T> extends LinkedList<T> {
     while (current) {
       const next = current.next;
       current.next = prev;
+      current.prev = next;
       prev = current;
       current.index = this._size - current.index - 1;
       current = next;
@@ -100,13 +98,13 @@ export default class SingleLinkedList<T> extends LinkedList<T> {
       throw error("Invalid range indices!");
     }
     if (start === end) {
-      return SingleLinkedList.create(this.nodeAt(start)?.value);
+      return DoubleLinkedList.create(this.nodeAt(start)?.value);
     }
     let current = this._head;
     while (current && current.index < start) {
       current = current.next;
     }
-    const list = new SingleLinkedList();
+    const list = new DoubleLinkedList();
     let count = 0;
     while (current && current.index <= end) {
       list.insertLast(current.value, count++);
@@ -118,10 +116,10 @@ export default class SingleLinkedList<T> extends LinkedList<T> {
   /**
    *
    * @param  {...any} args variable number of elements to be added to the list
-   * @returns an instance of the SingleLinkedList class, with arguments passed being represented as nodes in a sequential order
+   * @returns an instance of the DoubleLinkedList class, with arguments passed being represented as nodes in a sequential order
    */
   static create(...args: any[]): LinkedList<any> {
-    const list = new SingleLinkedList();
+    const list = new DoubleLinkedList();
     let count: number = args ? args.length - 1 : 0;
     args
       .slice(0)
