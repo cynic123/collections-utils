@@ -1,6 +1,6 @@
-import DoubleLinkedList from "./DoubleLinkedList";
-import LinkedList from "./LinkedList";
-import Node from "./Node";
-import SingleLinkedList from "./SingleLinkedList";
+import DoubleLinkedList from "./linkedList/DoubleLinkedList";
+import LinkedList from "./linkedList/LinkedList";
+import Node from "./linkedList/Node";
+import SingleLinkedList from "./linkedList/SingleLinkedList";
 
 export { DoubleLinkedList, LinkedList, Node, SingleLinkedList };
