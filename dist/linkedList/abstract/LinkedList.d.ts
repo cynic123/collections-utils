@@ -1,8 +1,10 @@
 /**
  * @author Prithwish Samanta
- * an abstract class defining a linked list data structure and its common operations
  */
 import LinkedNode from "../../node/LinkedNode";
+/**
+ * an abstract class defining a linked list data structure and its common operations
+ */
 export default abstract class LinkedList<T> {
   protected _head: LinkedNode<T> | null;
   protected _tail: LinkedNode<T> | null;
@@ -57,7 +59,7 @@ export default abstract class LinkedList<T> {
    *
    * @returns middle node of the list
    */
-  middle(): LinkedNode<T> | null;
+  middleNode(): LinkedNode<T> | null;
   /**
    *
    * @param index

@@ -1,3 +1,10 @@
+/**
+ * @author Prithwish Samanta
+ */
+
+/**
+ * an interface with method definitions of a Queue data structure. Can be inherited to different queue types: LinkedQueue, ProprityQueue, etc
+ */
 export default interface Queue<T> {
   /**
    * adds the argument element to the queue

@@ -1,6 +1,5 @@
 /**
  * @author Prithwish Samanta
- * a singly linked list implementation of abstract class LinkedList
  */
 import LinkedList from "../abstract/LinkedList";
 import LinkedNode from "../../node/LinkedNode";

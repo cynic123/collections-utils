@@ -1,6 +1,5 @@
 /**
  * @author Prithwish Samanta
- * a singly linked list implementation of abstract class LinkedList
  */
 
 import { error } from "console";

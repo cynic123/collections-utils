@@ -1,7 +1,6 @@
 "use strict";
 /**
  * @author Prithwish Samanta
- * a singly linked list implementation of abstract class LinkedList
  */
 var __importDefault =
   (this && this.__importDefault) ||

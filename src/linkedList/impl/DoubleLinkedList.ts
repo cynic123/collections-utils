@@ -1,6 +1,5 @@
 /**
  * @author Prithwish Samanta
- * a doubly linked list implementation of abstract class LinkedList
  */
 
 import { error } from "console";

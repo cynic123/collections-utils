@@ -1,10 +1,12 @@
 "use strict";
 /**
  * @author Prithwish Samanta
- * an abstract class defining a linked list data structure and its common operations
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 const console_1 = require("console");
+/**
+ * an abstract class defining a linked list data structure and its common operations
+ */
 class LinkedList {
   constructor() {
     this._head = null;
@@ -53,7 +55,7 @@ class LinkedList {
    *
    * @returns middle node of the list
    */
-  middle() {
+  middleNode() {
     let slow = this._head;
     let fast = this._head;
     while (fast && fast.next) {

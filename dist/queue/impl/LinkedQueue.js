@@ -1,5 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+/**
+ * A singly linked list based implemntation of Queue interface, having a First-In-First-Out mechanism
+ */
 class LinkedQueue {
   // todo
   add(data) {
