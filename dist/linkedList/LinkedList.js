@@ -1,4 +1,8 @@
 "use strict";
+/**
+ * @author Prithwish Samanta
+ * a singly linked list implementation of abstract class LinkedList
+ */
 Object.defineProperty(exports, "__esModule", { value: true });
 const console_1 = require("console");
 /**
@@ -16,6 +20,22 @@ class LinkedList {
     }
     get size() {
         return this._size;
+    }
+    /**
+     *
+     * @returns the value of the head element of the list if present, otherwise undefined
+     */
+    getFirst() {
+        var _a;
+        return (_a = this._head) === null || _a === void 0 ? void 0 : _a.value;
+    }
+    /**
+     *
+     * @returns the value of the tail element of the list if present, otherwise undefined
+     */
+    getLast() {
+        var _a;
+        return (_a = this._tail) === null || _a === void 0 ? void 0 : _a.value;
     }
     /**
      * prints the list

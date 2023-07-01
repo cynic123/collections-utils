@@ -1,3 +1,7 @@
+/**
+ * @author Prithwish Samanta
+ * a singly linked list implementation of abstract class LinkedList
+ */
 import Node from "./Node";
 /**
  * An abstract class with constructor and utility methods for regular operations on a linked list. Abstract methods
@@ -26,7 +30,7 @@ export default abstract class LinkedList<T> {
      * @param data data element to be inserted
      * @param index index at which the given element to be inserted
      */
-    abstract insertAt(data: T, index: number): void;
+    protected abstract insertAt(data: T, index: number): void;
     /**
      * reverses the list
      */
@@ -37,7 +41,17 @@ export default abstract class LinkedList<T> {
      * @param end
      * @returns returns a new list containing the nodes from the start index to the end index (both inclusive) of the original list
      */
-    abstract subList(start: number, end: number): LinkedList<T>;
+    protected abstract subList(start: number, end: number): LinkedList<T>;
+    /**
+     *
+     * @returns the value of the head element of the list if present, otherwise undefined
+     */
+    getFirst(): T | any;
+    /**
+     *
+     * @returns the value of the tail element of the list if present, otherwise undefined
+     */
+    getLast(): T | any;
     /**
      * prints the list
      */
@@ -46,13 +60,13 @@ export default abstract class LinkedList<T> {
      *
      * @returns middle node of the list
      */
-    middle(): Node<T> | null;
+    protected middle(): Node<T> | null;
     /**
      *
      * @param index
      * @returns node at the specified index
      */
-    nodeAt(index: number): Node<T> | null;
+    protected nodeAt(index: number): Node<T> | null;
     /**
      *
      * @returns returns a new array containing the elements of linked list in their original order

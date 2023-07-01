@@ -24,7 +24,7 @@ let palindromeList = SingleLinkedList.create(1, 2, 3, 2, 1);
 console.log('Creating new singly list:', palindromeList.print());
 console.log('Palindrome:', palindromeList.palindrome());
 console.log('--------------------------------------------------------');
-let dList = DoubleLinkedList.create(1, 2, 3, 4, 5, 2, 1);
+let dList = DoubleLinkedList.create(1, 2, 3, 4, 3, 2, 1);
 console.log('Creating new doubly list:', dList.print());
 dList.reverse();
 console.log('Reversed doubly list:', dList.print());

@@ -1,3 +1,8 @@
+/**
+ * @author Prithwish Samanta
+ * a singly linked list implementation of abstract class LinkedList
+ */
+
 import { error } from "console";
 import Node from "./Node";
 
@@ -42,7 +47,7 @@ export default abstract class LinkedList<T> {
    * @param data data element to be inserted
    * @param index index at which the given element to be inserted
    */
-  abstract insertAt(data: T, index: number): void;
+  protected abstract insertAt(data: T, index: number): void;
 
   /**
    * reverses the list
@@ -55,7 +60,23 @@ export default abstract class LinkedList<T> {
    * @param end
    * @returns returns a new list containing the nodes from the start index to the end index (both inclusive) of the original list
    */
-  abstract subList(start: number, end: number): LinkedList<T>;
+  protected abstract subList(start: number, end: number): LinkedList<T>;
+
+  /**
+   * 
+   * @returns the value of the head element of the list if present, otherwise undefined
+   */
+  getFirst(): T | any {
+    return this._head?.value;
+  }
+
+  /**
+   * 
+   * @returns the value of the tail element of the list if present, otherwise undefined
+   */
+  getLast(): T | any {
+    return this._tail?.value;
+  }
 
   /**
    * prints the list
@@ -75,7 +96,7 @@ export default abstract class LinkedList<T> {
    *
    * @returns middle node of the list
    */
-  middle(): Node<T> | null {
+  protected middle(): Node<T> | null {
     let slow: Node<T> | any = this._head;
     let fast: Node<T> | any = this._head;
     while (fast && fast.next) {
@@ -90,7 +111,7 @@ export default abstract class LinkedList<T> {
    * @param index
    * @returns node at the specified index
    */
-  nodeAt(index: number): Node<T> | null {
+  protected nodeAt(index: number): Node<T> | null {
     if (index < 0 || index >= this._size) {
       throw error("Invalid index!");
     }
