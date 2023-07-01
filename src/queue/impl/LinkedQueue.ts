@@ -1,3 +1,7 @@
+/**
+ * @author Prithwish Samanta
+ */
+
 import Queue from "../abstract/Queue";
 
 /**
