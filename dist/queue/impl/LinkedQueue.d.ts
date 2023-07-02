@@ -1,3 +1,6 @@
+/**
+ * @author Prithwish Samanta
+ */
 import Queue from "../abstract/Queue";
 /**
  * A singly linked list based implemntation of Queue interface, having a First-In-First-Out mechanism

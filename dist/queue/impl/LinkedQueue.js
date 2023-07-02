@@ -1,4 +1,7 @@
 "use strict";
+/**
+ * @author Prithwish Samanta
+ */
 Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * A singly linked list based implemntation of Queue interface, having a First-In-First-Out mechanism

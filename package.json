@@ -44,6 +44,7 @@
     "dist/*",
     ".prettierrc",
     "tslint.json",
-    "tsconfig.json"
+    "tsconfig.json",
+    ".gitignore"
   ]
 }
