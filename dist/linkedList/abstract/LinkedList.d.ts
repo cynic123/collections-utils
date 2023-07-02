@@ -46,6 +46,9 @@ export default abstract class LinkedList<T> {
    * @param data
    */
   add(data: T): void;
+  /**
+   * @returns true if the list is epmty, else false
+   */
   isEmpty(): boolean;
   /**
    *

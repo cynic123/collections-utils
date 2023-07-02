@@ -29,6 +29,9 @@ class LinkedList {
   add(data) {
     this.insertLast(data);
   }
+  /**
+   * @returns true if the list is epmty, else false
+   */
   isEmpty() {
     return this._size === 0;
   }

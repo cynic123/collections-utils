@@ -14,22 +14,28 @@ export default interface Queue<T> {
   push(data: T): void | Error;
 
   /**
-   * retrieves the element at the head of the queue, or undefined if the queue is empty
+   * @returns the value of the first element of the queue after removing it, or undefined if the queue is empty
    */
   poll(): T | undefined;
 
   /**
-   * @param data element to be inserted to queue, ignores the operation if the inherited queue implementation has size restrictions and the queue capacity is full
+   * @param data element to be inserted to queue, ignores the operation if the inherited queue implementation has size
+   * restrictions and the queue capacity is full
    */
   offer(data: T): void;
 
   /**
-   * returns the element at the beginning of the queue, or undefined if the queue is empty
+   * @returns the value of the first element of the queue, or undefined if the queue is empty
    */
   peek(): T | undefined;
 
   /**
-   * returns the element at the end of the queue, or null if the queue is empty
+   * @returns the last element of the queue, or undefined if the queue is empty
    */
   peekLast(): T | undefined;
+
+  /**
+   * @returns true if the queue is empty, else false
+   */
+  isEmpty(): boolean;
 }
