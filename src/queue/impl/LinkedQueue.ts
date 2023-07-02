@@ -26,7 +26,7 @@ export default class LinkedQueue<T> implements Queue<T> {
   }
 
   /**
-   * inserts an element to the end of the queue
+   * inserts an element to the end of the linked list based queue
    * @param data
    */
   push(data: T): void | Error {

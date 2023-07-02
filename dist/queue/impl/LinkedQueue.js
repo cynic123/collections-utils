@@ -25,7 +25,7 @@ class LinkedQueue {
     return this._items;
   }
   /**
-   * inserts an element to the end of the queue
+   * inserts an element to the end of the linked list based queue
    * @param data
    */
   push(data) {
