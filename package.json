@@ -41,7 +41,7 @@
   "license": "ISC",
   "description": "A simple TypeScript based JS library for different collections available in Java.",
   "files": [
-    "dist/*",
+    "dist",
     ".prettierrc",
     "tslint.json",
     "tsconfig.json",
