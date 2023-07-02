@@ -11,18 +11,19 @@ export default abstract class LinkedList<T> {
   protected _size: number;
   protected constructor();
   protected get head(): LinkedNode<T> | null;
-  protected get size(): number;
+  protected get tail(): LinkedNode<T> | null;
+  get size(): number;
   /**
    * method which inserts the given data at the beginning
    * @param data
    */
-  protected abstract insertFirst(data: T, index: number): void;
+  protected abstract insertFirst(data: T): void;
   /**
    * method which inserts the given data at the end
    * @param data
    * @param index
    */
-  protected abstract insertLast(data: T, index: number): void;
+  protected abstract insertLast(data: T): void;
   /**
    *
    * @param data data element to be inserted
@@ -40,6 +41,11 @@ export default abstract class LinkedList<T> {
    * @returns returns a new list containing the nodes from the start index to the end index (both inclusive) of the original list
    */
   protected abstract subList(start: number, end: number): LinkedList<T>;
+  /**
+   * inserts the given element to the end of the linked list
+   * @param data
+   */
+  add(data: T): void;
   isEmpty(): boolean;
   /**
    *

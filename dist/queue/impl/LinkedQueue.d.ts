@@ -1,12 +1,21 @@
 /**
  * @author Prithwish Samanta
  */
+import LinkedList from "../../linkedList/abstract/LinkedList";
 import Queue from "../abstract/Queue";
 /**
- * A singly linked list based implemntation of Queue interface, having a First-In-First-Out mechanism
+ * A singly linked list based implemntation of Queue interface, having a First-In-First-Out mechanism and no fixed capacity
  */
 export default class LinkedQueue<T> implements Queue<T> {
-  add(data: T): void | Error;
+  protected _items: LinkedList<T>;
+  constructor();
+  get size(): number;
+  get items(): LinkedList<T>;
+  /**
+   * inserts an element to the end of the queue
+   * @param data
+   */
+  push(data: T): void | Error;
   poll(): T | undefined;
   offer(data: T): void;
   peek(): T | undefined;

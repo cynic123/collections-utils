@@ -12,13 +12,13 @@ export default class DoubleLinkedList<T> extends LinkedList<T> {
    * method which inserts the given data at the beginning
    * @param data
    */
-  protected insertFirst(data: T, index: number): void;
+  protected insertFirst(data: T): void;
   /**
    * method which inserts the given data at the end
    * @param data
    * @param index
    */
-  protected insertLast(data: T, index: number): void;
+  protected insertLast(data: T): void;
   /**
    *
    * @param data data element to be inserted

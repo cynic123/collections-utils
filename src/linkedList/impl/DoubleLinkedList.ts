@@ -19,12 +19,17 @@ export default class DoubleLinkedList<T> extends LinkedList<T> {
    * method which inserts the given data at the beginning
    * @param data
    */
-  protected insertFirst(data: T, index: number): void {
+  protected insertFirst(data: T): void {
     const currHead = this._head;
-    const newNode = new LinkedNode(data, currHead, index);
+    const newNode = new LinkedNode(data, currHead, 0);
     this._head = newNode;
     if (!currHead) this._tail = newNode;
     else currHead.prev = newNode;
+    let current = this._head.next;
+    while (current) {
+      current.index++;
+      current = current.next;
+    }
     this._size++;
   }
 
@@ -33,9 +38,9 @@ export default class DoubleLinkedList<T> extends LinkedList<T> {
    * @param data
    * @param index
    */
-  protected insertLast(data: T, index: number): void {
+  protected insertLast(data: T): void {
     const currTail = this._tail;
-    const newNode = new LinkedNode(data, null, index, currTail);
+    const newNode = new LinkedNode(data, null, this.size, currTail);
     this._tail = newNode;
     if (!currTail) {
       this._head = newNode;
@@ -104,9 +109,8 @@ export default class DoubleLinkedList<T> extends LinkedList<T> {
       current = current.next;
     }
     const list = new DoubleLinkedList();
-    let count = 0;
     while (current && current.index <= end) {
-      list.insertLast(current.value, count++);
+      list.insertLast(current.value);
       current = current.next;
     }
     return list;
@@ -119,12 +123,11 @@ export default class DoubleLinkedList<T> extends LinkedList<T> {
    */
   static create(...args: any[]): LinkedList<any> {
     const list = new DoubleLinkedList();
-    let count: number = args ? args.length - 1 : 0;
     args
       .slice(0)
       .reverse()
       .forEach((val) => {
-        list.insertFirst(val, count--);
+        list.insertFirst(val);
       });
     return list;
   }

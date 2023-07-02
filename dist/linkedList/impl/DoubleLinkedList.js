@@ -23,12 +23,17 @@ class DoubleLinkedList extends LinkedList_1.default {
    * method which inserts the given data at the beginning
    * @param data
    */
-  insertFirst(data, index) {
+  insertFirst(data) {
     const currHead = this._head;
-    const newNode = new LinkedNode_1.default(data, currHead, index);
+    const newNode = new LinkedNode_1.default(data, currHead, 0);
     this._head = newNode;
     if (!currHead) this._tail = newNode;
     else currHead.prev = newNode;
+    let current = this._head.next;
+    while (current) {
+      current.index++;
+      current = current.next;
+    }
     this._size++;
   }
   /**
@@ -36,9 +41,9 @@ class DoubleLinkedList extends LinkedList_1.default {
    * @param data
    * @param index
    */
-  insertLast(data, index) {
+  insertLast(data) {
     const currTail = this._tail;
-    const newNode = new LinkedNode_1.default(data, null, index, currTail);
+    const newNode = new LinkedNode_1.default(data, null, this.size, currTail);
     this._tail = newNode;
     if (!currTail) {
       this._head = newNode;
@@ -108,9 +113,8 @@ class DoubleLinkedList extends LinkedList_1.default {
       current = current.next;
     }
     const list = new DoubleLinkedList();
-    let count = 0;
     while (current && current.index <= end) {
-      list.insertLast(current.value, count++);
+      list.insertLast(current.value);
       current = current.next;
     }
     return list;
@@ -122,12 +126,11 @@ class DoubleLinkedList extends LinkedList_1.default {
    */
   static create(...args) {
     const list = new DoubleLinkedList();
-    let count = args ? args.length - 1 : 0;
     args
       .slice(0)
       .reverse()
       .forEach((val) => {
-        list.insertFirst(val, count--);
+        list.insertFirst(val);
       });
     return list;
   }

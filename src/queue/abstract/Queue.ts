@@ -7,11 +7,11 @@
  */
 export default interface Queue<T> {
   /**
-   * adds the argument element to the queue
+   * inserts an element to the queue
    * @param data element to be inserted to queue
    * @throws error if the inherited queue implementation has size restrictions and the queue capacity is full
    */
-  add(data: T): void | Error;
+  push(data: T): void | Error;
 
   /**
    * retrieves the element at the head of the queue, or undefined if the queue is empty

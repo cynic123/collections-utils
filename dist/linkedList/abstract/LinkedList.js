@@ -16,8 +16,18 @@ class LinkedList {
   get head() {
     return this._head;
   }
+  get tail() {
+    return this._tail;
+  }
   get size() {
     return this._size;
+  }
+  /**
+   * inserts the given element to the end of the linked list
+   * @param data
+   */
+  add(data) {
+    this.insertLast(data);
   }
   isEmpty() {
     return this._size === 0;

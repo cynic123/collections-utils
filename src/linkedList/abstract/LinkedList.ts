@@ -23,7 +23,11 @@ export default abstract class LinkedList<T> {
     return this._head;
   }
 
-  protected get size(): number {
+  protected get tail(): LinkedNode<T> | null {
+    return this._tail;
+  }
+
+  get size(): number {
     return this._size;
   }
 
@@ -31,14 +35,14 @@ export default abstract class LinkedList<T> {
    * method which inserts the given data at the beginning
    * @param data
    */
-  protected abstract insertFirst(data: T, index: number): void;
+  protected abstract insertFirst(data: T): void;
 
   /**
    * method which inserts the given data at the end
    * @param data
    * @param index
    */
-  protected abstract insertLast(data: T, index: number): void;
+  protected abstract insertLast(data: T): void;
 
   /**
    *
@@ -59,6 +63,14 @@ export default abstract class LinkedList<T> {
    * @returns returns a new list containing the nodes from the start index to the end index (both inclusive) of the original list
    */
   protected abstract subList(start: number, end: number): LinkedList<T>;
+
+  /**
+   * inserts the given element to the end of the linked list
+   * @param data
+   */
+  add(data: T) {
+    this.insertLast(data);
+  }
 
   isEmpty(): boolean {
     return this._size === 0;
