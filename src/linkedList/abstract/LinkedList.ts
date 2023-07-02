@@ -6,7 +6,7 @@ import { error } from "console";
 import LinkedNode from "../../node/LinkedNode";
 
 /**
- * an abstract class defining a linked list data structure and its common operations
+ * an abstract class defining a linked list data structure and common operations performed on it
  */
 export default abstract class LinkedList<T> {
   protected _head: LinkedNode<T> | null;

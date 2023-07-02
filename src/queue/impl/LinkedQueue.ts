@@ -55,14 +55,14 @@ export default class LinkedQueue<T> implements Queue<T> {
    * the queue is empty
    */
   peek(): T | undefined {
-    throw new Error("Method not implemented.");
+    return this._items.getFirst();
   }
 
   /**
    * @returns the value of the last element in the queue without removing it. Returns undefined if the queue is empty
    */
   peekLast(): T | undefined {
-    throw new Error("Method not implemented.");
+    return this._items.getLast();
   }
 
   /**
