@@ -11,6 +11,9 @@ exports.TreeNode =
   exports.LinkedList =
   exports.DoubleLinkedList =
     void 0;
+/**
+ * @author Prithwish Samanta
+ */
 const DoubleLinkedList_1 = __importDefault(
   require("./linkedList/impl/DoubleLinkedList")
 );

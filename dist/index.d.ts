@@ -1,3 +1,6 @@
+/**
+ * @author Prithwish Samanta
+ */
 import DoubleLinkedList from "./linkedList/impl/DoubleLinkedList";
 import LinkedList from "./linkedList/abstract/LinkedList";
 import LinkedNode from "./node/LinkedNode";
