@@ -110,6 +110,14 @@ export default abstract class LinkedList<T> {
 
   /**
    *
+   * @returns element at the middle of the list, or undefined if the list is empty
+   */
+  middle(): T | any {
+    return this.middleNode()?.value;
+  }
+
+  /**
+   *
    * @param index
    * @returns node at the specified index
    */

@@ -66,6 +66,16 @@ class LinkedList {
   }
   /**
    *
+   * @returns element at the middle of the list, or undefined if the list is empty
+   */
+  middle() {
+    var _a;
+    return (_a = this.middleNode()) === null || _a === void 0
+      ? void 0
+      : _a.value;
+  }
+  /**
+   *
    * @param index
    * @returns node at the specified index
    */
