@@ -76,7 +76,7 @@ export default abstract class LinkedList<T> {
    * @param index
    * @returns node at the specified index
    */
-  protected nodeAt(index: number): LinkedNode<T> | null;
+  nodeAt(index: number): LinkedNode<T> | null;
   /**
    *
    * @returns returns a new array containing the elements of linked list in their original order

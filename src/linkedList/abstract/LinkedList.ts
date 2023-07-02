@@ -133,7 +133,7 @@ export default abstract class LinkedList<T> {
    * @param index
    * @returns node at the specified index
    */
-  protected nodeAt(index: number): LinkedNode<T> | null {
+  nodeAt(index: number): LinkedNode<T> | null {
     if (index < 0 || index >= this._size) {
       throw error("Invalid index!");
     }
