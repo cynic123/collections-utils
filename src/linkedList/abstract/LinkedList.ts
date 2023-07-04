@@ -45,16 +45,38 @@ export default abstract class LinkedList<T> {
   protected abstract insertLast(data: T): void;
 
   /**
-   *
-   * @param data data element to be inserted
    * @param index index at which the given element to be inserted
+   * @param data data element to be inserted
    */
-  protected abstract insertAt(data: T, index: number): void;
+  protected abstract insertAt(index: number, data: T): void;
 
   /**
-   * reverses the list
+   * @returns the value of the first element after removing it from the list, if the list is empty returns null
    */
-  abstract reverse(): void;
+  protected abstract deleteFirst(): number | null;
+
+  /**
+   * @returns the value of the last element after removing it from the list, if the list is empty returns null
+   */
+  protected abstract deleteLast(): number | null;
+
+  /**
+   * @param data the element to be deleted from the list
+   * @returns the value of the provided element after removing it from the list, if the list is empty or element is not
+   * present, returns null
+   */
+  protected abstract delete(data: T): number | null;
+
+  /**
+   * @param index the index of the element in the list to delete
+   * @returns the value of the element deleted at the specified index. If index not in range, or element is
+   */
+  protected abstract deleteAt(index: number): number | null;
+
+  /**
+   * reverses the list on which the method is called upon
+   */
+  protected abstract reverse(): void;
 
   /**
    *
@@ -76,23 +98,23 @@ export default abstract class LinkedList<T> {
    * @returns true if the list is epmty, else false
    */
   isEmpty(): boolean {
-    return this._size === 0;
+    return !this._head && !this._tail && this._size === 0;
   }
 
   /**
    *
    * @returns the value of the head element of the list if present, otherwise undefined
    */
-  getFirst(): T | any {
-    return this._head?.value;
+  getFirst(): T | null {
+    return this._head ? this.head?.value : null;
   }
 
   /**
    *
    * @returns the value of the tail element of the list if present, otherwise undefined
    */
-  getLast(): T | any {
-    return this._tail?.value;
+  getLast(): T | null {
+    return this._tail ? this._tail.value : null;
   }
 
   /**
@@ -149,7 +171,8 @@ export default abstract class LinkedList<T> {
 
   /**
    *
-   * @returns returns a new array containing the elements of linked list in their original order
+   * @returns returns a new array containing the elements of the linked list in their original order, returns null if the
+   * list is empty
    */
   toArray(): number[] | null {
     let current: LinkedNode<T> | null = this._head;
@@ -158,12 +181,12 @@ export default abstract class LinkedList<T> {
       arr[current.index] = current.value;
       current = current.next;
     }
-    return arr;
+    return arr.length ? arr : null;
   }
 
   /**
    *
-   * @param other other list to compare to
+   * @param other other list (an instance of {@link LinkedList}) to compare to
    * @returns if the referred to list and the other list passed as argument as same in size and values
    */
   equals(other: LinkedList<T>): boolean {

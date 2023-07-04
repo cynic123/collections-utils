@@ -17,10 +17,13 @@ export default class LinkedQueue<T> implements Queue<T> {
    */
   push(data: T): void | Error;
   /**
-   * @returns the value of the first element in the queue after removing from the queue. If the queue is empty, returns
-   * undefined
+   * @returns the value of the first element of the queue after removing it, returns null if the queue is empty
    */
-  poll(): T | undefined;
+  poll(): T | null;
+  /**
+   * the value of the last element of the queue after removing it, returns null if the queue is empty
+   */
+  pollLast(): T | null;
   /**
    * inserts an element to the end of the linked list based queue, similar to push method. Since this is a dynamically
    * sized queue implementation, throws no capacity full error
@@ -28,14 +31,14 @@ export default class LinkedQueue<T> implements Queue<T> {
    */
   offer(data: T): void;
   /**
-   * @returns the value of the first element of the queue without removing it unlike the poll method. Returns undefined if
+   * @returns the value of the first element of the queue without removing it unlike the poll method. Returns null if
    * the queue is empty
    */
-  peek(): T | undefined;
+  peek(): T | null;
   /**
-   * @returns the value of the last element in the queue without removing it. Returns undefined if the queue is empty
+   * @returns the value of the last element in the queue without removing it. Returns null if the queue is empty
    */
-  peekLast(): T | undefined;
+  peekLast(): T | null;
   /**
    * @returns true if the queue is empty, else false
    */

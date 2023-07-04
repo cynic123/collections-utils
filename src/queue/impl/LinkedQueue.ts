@@ -33,12 +33,18 @@ export default class LinkedQueue<T> implements Queue<T> {
   }
 
   /**
-   * @returns the value of the first element in the queue after removing from the queue. If the queue is empty, returns
-   * undefined
+   * @returns the value of the first element of the queue after removing it, returns null if the queue is empty
    */
-  poll(): T | undefined {
-    throw undefined;
+  poll(): T | null {
+    return null;
     // todo
+  }
+
+  /**
+   * the value of the last element of the queue after removing it, returns null if the queue is empty
+   */
+  pollLast(): T | null {
+    throw new Error("Method not implemented.");
   }
 
   /**
@@ -51,17 +57,17 @@ export default class LinkedQueue<T> implements Queue<T> {
   }
 
   /**
-   * @returns the value of the first element of the queue without removing it unlike the poll method. Returns undefined if
+   * @returns the value of the first element of the queue without removing it unlike the poll method. Returns null if
    * the queue is empty
    */
-  peek(): T | undefined {
+  peek(): T | null {
     return this._items.getFirst();
   }
 
   /**
-   * @returns the value of the last element in the queue without removing it. Returns undefined if the queue is empty
+   * @returns the value of the last element in the queue without removing it. Returns null if the queue is empty
    */
-  peekLast(): T | undefined {
+  peekLast(): T | null {
     return this._items.getLast();
   }
 

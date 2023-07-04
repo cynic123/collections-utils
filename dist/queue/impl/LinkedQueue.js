@@ -32,12 +32,17 @@ class LinkedQueue {
     this._items.add(data);
   }
   /**
-   * @returns the value of the first element in the queue after removing from the queue. If the queue is empty, returns
-   * undefined
+   * @returns the value of the first element of the queue after removing it, returns null if the queue is empty
    */
   poll() {
-    throw undefined;
+    return null;
     // todo
+  }
+  /**
+   * the value of the last element of the queue after removing it, returns null if the queue is empty
+   */
+  pollLast() {
+    throw new Error("Method not implemented.");
   }
   /**
    * inserts an element to the end of the linked list based queue, similar to push method. Since this is a dynamically
@@ -48,17 +53,17 @@ class LinkedQueue {
     this._items.add(data);
   }
   /**
-   * @returns the value of the first element of the queue without removing it unlike the poll method. Returns undefined if
+   * @returns the value of the first element of the queue without removing it unlike the poll method. Returns null if
    * the queue is empty
    */
   peek() {
-    throw new Error("Method not implemented.");
+    return this._items.getFirst();
   }
   /**
-   * @returns the value of the last element in the queue without removing it. Returns undefined if the queue is empty
+   * @returns the value of the last element in the queue without removing it. Returns null if the queue is empty
    */
   peekLast() {
-    throw new Error("Method not implemented.");
+    return this._items.getLast();
   }
   /**
    * @returns true if the queue is empty, else false

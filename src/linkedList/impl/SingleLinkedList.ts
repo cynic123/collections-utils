@@ -7,7 +7,7 @@ import LinkedList from "../abstract/LinkedList";
 import LinkedNode from "../../node/LinkedNode";
 
 /**
- * A singly linked list implementation of LinkedList class, with each node having references to only the following node
+ * A singly linked list implementation of {@link LinkedList} class, with each node having references to only the following node
  */
 export default class SingleLinkedList<T> extends LinkedList<T> {
   constructor() {
@@ -53,31 +53,93 @@ export default class SingleLinkedList<T> extends LinkedList<T> {
   }
 
   /**
-   *
-   * @param data data element to be inserted
    * @param index index at which the given element to be inserted
+   * @param data data element to be inserted
+   * @throws Invalid index error if the specified index is less than starting index and greater than end index
    */
-  insertAt(data: T, index: number): void {
-    if (index < 0 || index >= this._size) throw error("Invalid index!");
-    let current: LinkedNode<T> | any = this._head;
-    let prev: LinkedNode<T> | any = null;
-    let currIndex = 0;
-    while (current && currIndex < index) {
-      prev = current;
-      current = current.next;
-      currIndex++;
-    }
-    const temp = new LinkedNode(data, current, currIndex);
-    prev.next = temp;
-    current = current.next;
-    while (current) {
-      current.index = current.index + 1;
-      current = current.next;
+  insertAt(index: number, data: T): void {
+    if (index < 0 || index > this.size - 1) throw error("Invalid index!");
+    if (index === 0) return this.insertFirst(data);
+    else if (index === this._size - 1) return this.insertLast(data);
+    else {
+      let current: LinkedNode<T> | any = this._head;
+      while (current && current.index < index - 1) {
+        current = current.next;
+      }
+      const temp = new LinkedNode(data, current.next, current.index + 1);
+      current.next = temp;
+      current = current.next.next;
+      while (current) {
+        current.index = current.index + 1;
+        current = current.next;
+      }
+      this._size++;
     }
   }
 
   /**
-   * reverses the list
+   * @returns the value of the first element after removing it from the list, returns null if the list is empty
+   */
+  deleteFirst(): number | null {
+    const head = this._head;
+    if (!this.isEmpty()) {
+      this._head = head ? head.next : null;
+      if (!this._head) {
+        // current list is empty after removing head
+        this._tail = null;
+      }
+      this._size--;
+    }
+    return head ? head.value : null;
+  }
+
+  /**
+   * @returns the value of the last element after removing it from the list, returns null if the list is empty
+   */
+  deleteLast(): number | null {
+    const tail = this._tail;
+    if (!this.isEmpty()) {
+      let current = this._head;
+      let prev = null;
+      while (current && current.next) {
+        prev = current;
+        current = current.next;
+      }
+      this._tail = prev;
+      this._head = this._tail ? this._tail : null; // current list is empty after removing tail
+      this._size--;
+    }
+    return tail ? tail.value : null;
+  }
+
+  /**
+   * @param data the element to be deleted from the list
+   * @returns the value of the provided element after removing it from the list, if the list is empty or element is not
+   * present, returns null
+   */
+  delete(data: T): number | null {
+    // todo
+    return null;
+  }
+
+  /**
+   * @param index the index of the element in the list to delete
+   * @returns the value of the element deleted at the specified index. If index not in range, or element is
+   */
+  deleteAt(index: number): number | null {
+    if (index < 0 || index > this._size - 1) throw error("Invalid index!");
+    let current = this._head;
+    let prev = null;
+    while (current && current.index < index) {
+      prev = current;
+      current = current.next;
+    }
+    // todo
+    return null;
+  }
+
+  /**
+   * reverses the list on which the method is called upon
    */
   reverse(): void {
     let prev = null;
@@ -97,9 +159,10 @@ export default class SingleLinkedList<T> extends LinkedList<T> {
    *
    * @param start
    * @param end
-   * @returns returns a new list containing the nodes from the start index to the end index (both inclusive) of the original list
+   * @returns returns a new instance of {@link SingleLinkedList} class containing the nodes from the start index to the end
+   * index (both inclusive) of the original list
    */
-  subList(start: number, end: number): LinkedList<T> {
+  subList(start: number, end: number): LinkedList<T | any> {
     if (start < 0 || end >= this._size || start > end) {
       throw error("Invalid range indices!");
     }
@@ -119,9 +182,9 @@ export default class SingleLinkedList<T> extends LinkedList<T> {
   }
 
   /**
-   *
    * @param  {...any} args variable number of elements to be added to the list
-   * @returns an instance of the SingleLinkedList class, with arguments passed being represented as nodes in a sequential order
+   * @returns an instance of the {@link SingleLinkedList} class, having nodes of {@link LinkedNode} instances added in a
+   * sequential order
    */
   static create(...args: any[]): LinkedList<any> {
     const list = new SingleLinkedList();

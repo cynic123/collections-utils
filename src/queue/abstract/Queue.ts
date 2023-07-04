@@ -14,9 +14,14 @@ export default interface Queue<T> {
   push(data: T): void | Error;
 
   /**
-   * @returns the value of the first element of the queue after removing it, or undefined if the queue is empty
+   * @returns the value of the first element of the queue after removing it, returns null if the queue is empty
    */
-  poll(): T | undefined;
+  poll(): T | null;
+
+  /**
+   * @returns the value of the last element of the queue after removing it, returns null if the queue is empty
+   */
+  pollLast(): T | null;
 
   /**
    * @param data element to be inserted to queue, ignores the operation if the inherited queue implementation has size
@@ -25,14 +30,14 @@ export default interface Queue<T> {
   offer(data: T): void;
 
   /**
-   * @returns the value of the first element of the queue, or undefined if the queue is empty
+   * @returns the value of the first element of the queue, or null if the queue is empty
    */
-  peek(): T | undefined;
+  peek(): T | null;
 
   /**
-   * @returns the last element of the queue, or undefined if the queue is empty
+   * @returns the last element of the queue, or null if the queue is empty
    */
-  peekLast(): T | undefined;
+  peekLast(): T | null;
 
   /**
    * @returns true if the queue is empty, else false

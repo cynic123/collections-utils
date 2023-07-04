@@ -12,8 +12,8 @@ const console_1 = require("console");
 const LinkedList_1 = __importDefault(require("../abstract/LinkedList"));
 const LinkedNode_1 = __importDefault(require("../../node/LinkedNode"));
 /**
- * A doubly linked list implementation of LinkedList class, with each node having references to both preceding and following
- * nodes
+ * A doubly linked list implementation of {@link LinkedList} class, with each node having references to both preceding and
+ * following nodes
  */
 class DoubleLinkedList extends LinkedList_1.default {
   constructor() {
@@ -53,30 +53,88 @@ class DoubleLinkedList extends LinkedList_1.default {
     this._size++;
   }
   /**
-   *
-   * @param data data element to be inserted
    * @param index index at which the given element to be inserted
+   * @param data data element to be inserted
+   * @throws Invalid index error if the specified index is less than starting index and greater than end index
    */
-  insertAt(data, index) {
-    if (index < 0 || index >= this._size)
+  insertAt(index, data) {
+    if (index < 0 || index > this.size - 1)
       throw (0, console_1.error)("Invalid index!");
-    let current = this._head;
-    let currIndex = 0;
-    while (current && currIndex < index) {
-      current = current.next;
-      currIndex++;
-    }
-    const prev = current.prev;
-    const temp = new LinkedNode_1.default(data, current, currIndex, prev);
-    prev.next = temp;
-    current = current.next;
-    while (current) {
-      current.index = current.index + 1;
-      current = current.next;
+    if (index === 0) return this.insertFirst(data);
+    else if (index === this._size - 1) return this.insertLast(data);
+    else {
+      let current = this._head;
+      while (current && current.index < index - 1) {
+        current = current.next;
+      }
+      const temp = new LinkedNode_1.default(
+        data,
+        current.next,
+        current.index + 1,
+        current
+      );
+      current.next = temp;
+      current = current.next.next;
+      while (current) {
+        current.index = current.index + 1;
+        current = current.next;
+      }
+      this._size++;
     }
   }
   /**
-   * reverses the list
+   * @returns the value of the first element after removing it from the list, returns null if the list is empty
+   */
+  deleteFirst() {
+    const head = this._head;
+    if (!this.isEmpty()) {
+      this._head = this._head ? this._head.next : null;
+      if (this._head) {
+        this._head.prev = null;
+      } else {
+        // current list is empty after removing head
+        this._tail = null;
+      }
+      this._size--;
+    }
+    return head ? head.value : null;
+  }
+  /**
+   * @returns the value of the last element after removing it from the list, returns null if the list is empty
+   */
+  deleteLast() {
+    const tail = this._tail;
+    if (!this.isEmpty()) {
+      this._tail = this._tail ? this._tail.prev : null;
+      if (this._tail) {
+        this._tail.next = null;
+      } else {
+        // current list is empty after removing tail
+        this._head = null;
+      }
+      this._size--;
+    }
+    return tail ? tail.value : null;
+  }
+  /**
+   * @param data the element to be deleted from the list
+   * @returns the value of the provided element after removing it from the list, if the list is empty or element is not
+   * present, returns null
+   */
+  delete(data) {
+    // todo
+    return null;
+  }
+  /**
+   * @param index the index of the element in the list to delete
+   * @returns the value of the element deleted at the specified index. If index not in range, or element is
+   */
+  deleteAt(index) {
+    // todo
+    return null;
+  }
+  /**
+   * reverses the list on which the method is called upon
    */
   reverse() {
     let prev = null;
@@ -96,7 +154,8 @@ class DoubleLinkedList extends LinkedList_1.default {
    *
    * @param start
    * @param end
-   * @returns returns a new list containing the nodes from the start index to the end index (both inclusive) of the original list
+   * @returns returns a new instance of {@link DoubleLinkedList} class containing the nodes from the start index to the end
+   * index (both inclusive) of the original list
    */
   subList(start, end) {
     var _a;
@@ -120,9 +179,9 @@ class DoubleLinkedList extends LinkedList_1.default {
     return list;
   }
   /**
-   *
    * @param  {...any} args variable number of elements to be added to the list
-   * @returns an instance of the DoubleLinkedList class, with arguments passed being represented as nodes in a sequential order
+   * @returns an instance of the {@link DoubleLinkedList} class, having nodes of {@link LinkedNode} instances added in a
+   * sequential order
    */
   static create(...args) {
     const list = new DoubleLinkedList();

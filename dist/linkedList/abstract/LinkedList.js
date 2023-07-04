@@ -5,7 +5,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const console_1 = require("console");
 /**
- * an abstract class defining a linked list data structure and its common operations
+ * an abstract class defining a linked list data structure and common operations performed on it
  */
 class LinkedList {
   constructor() {
@@ -33,7 +33,7 @@ class LinkedList {
    * @returns true if the list is epmty, else false
    */
   isEmpty() {
-    return this._size === 0;
+    return !this._head && !this._tail && this._size === 0;
   }
   /**
    *
@@ -41,15 +41,18 @@ class LinkedList {
    */
   getFirst() {
     var _a;
-    return (_a = this._head) === null || _a === void 0 ? void 0 : _a.value;
+    return this._head
+      ? (_a = this.head) === null || _a === void 0
+        ? void 0
+        : _a.value
+      : null;
   }
   /**
    *
    * @returns the value of the tail element of the list if present, otherwise undefined
    */
   getLast() {
-    var _a;
-    return (_a = this._tail) === null || _a === void 0 ? void 0 : _a.value;
+    return this._tail ? this._tail.value : null;
   }
   /**
    * prints the list
@@ -104,7 +107,8 @@ class LinkedList {
   }
   /**
    *
-   * @returns returns a new array containing the elements of linked list in their original order
+   * @returns returns a new array containing the elements of the linked list in their original order, returns null if the
+   * list is empty
    */
   toArray() {
     let current = this._head;
@@ -113,11 +117,11 @@ class LinkedList {
       arr[current.index] = current.value;
       current = current.next;
     }
-    return arr;
+    return arr.length ? arr : null;
   }
   /**
    *
-   * @param other other list to compare to
+   * @param other other list (an instance of {@link LinkedList}) to compare to
    * @returns if the referred to list and the other list passed as argument as same in size and values
    */
   equals(other) {
