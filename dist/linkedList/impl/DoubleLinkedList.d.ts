@@ -22,28 +22,29 @@ export default class DoubleLinkedList<T> extends LinkedList<T> {
   /**
    * @param index index at which the given element to be inserted
    * @param data data element to be inserted
-   * @throws Invalid index error if the specified index is less than starting index and greater than end index
+   * @throws ListIndexOutOfBoundsError if the specified index is less than starting index and greater than end index
    */
   insertAt(index: number, data: T): void;
   /**
    * @returns the value of the first element after removing it from the list, returns null if the list is empty
    */
-  deleteFirst(): number | null;
+  deleteFirst(): T | null;
   /**
    * @returns the value of the last element after removing it from the list, returns null if the list is empty
    */
-  deleteLast(): number | null;
+  deleteLast(): T | null;
   /**
    * @param data the element to be deleted from the list
    * @returns the value of the provided element after removing it from the list, if the list is empty or element is not
    * present, returns null
    */
-  delete(data: T): number | null;
+  delete(data: T): T | null;
   /**
    * @param index the index of the element in the list to delete
    * @returns the value of the element deleted at the specified index. If index not in range, or element is
+   * @throws ListIndexOutOfBoundsError if the specified index is less than starting index and greater than end index
    */
-  deleteAt(index: number): number | null;
+  deleteAt(index: number): T | null;
   /**
    * reverses the list on which the method is called upon
    */

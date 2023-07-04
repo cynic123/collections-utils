@@ -27,27 +27,29 @@ export default abstract class LinkedList<T> {
   /**
    * @param index index at which the given element to be inserted
    * @param data data element to be inserted
+   * @throws ListIndexOutOfBoundsError if the specified index is less than starting index and greater than end index
    */
   protected abstract insertAt(index: number, data: T): void;
   /**
    * @returns the value of the first element after removing it from the list, if the list is empty returns null
    */
-  protected abstract deleteFirst(): number | null;
+  protected abstract deleteFirst(): T | null;
   /**
    * @returns the value of the last element after removing it from the list, if the list is empty returns null
    */
-  protected abstract deleteLast(): number | null;
+  protected abstract deleteLast(): T | null;
   /**
    * @param data the element to be deleted from the list
    * @returns the value of the provided element after removing it from the list, if the list is empty or element is not
    * present, returns null
    */
-  protected abstract delete(data: T): number | null;
+  protected abstract delete(data: T): T | null;
   /**
    * @param index the index of the element in the list to delete
    * @returns the value of the element deleted at the specified index. If index not in range, or element is
+   * @throws ListIndexOutOfBoundsError if the specified index is less than starting index and greater than end index
    */
-  protected abstract deleteAt(index: number): number | null;
+  protected abstract deleteAt(index: number): T | null;
   /**
    * reverses the list on which the method is called upon
    */

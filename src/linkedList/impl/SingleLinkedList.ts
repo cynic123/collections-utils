@@ -55,10 +55,11 @@ export default class SingleLinkedList<T> extends LinkedList<T> {
   /**
    * @param index index at which the given element to be inserted
    * @param data data element to be inserted
-   * @throws Invalid index error if the specified index is less than starting index and greater than end index
+   * @throws ListIndexOutOfBoundsError if the specified index is less than starting index and greater than end index
    */
   insertAt(index: number, data: T): void {
-    if (index < 0 || index > this.size - 1) throw error("Invalid index!");
+    if (index < 0 || index > this.size - 1)
+      throw error("ListIndexOutOfBoundsError");
     if (index === 0) return this.insertFirst(data);
     else if (index === this._size - 1) return this.insertLast(data);
     else {
@@ -80,7 +81,7 @@ export default class SingleLinkedList<T> extends LinkedList<T> {
   /**
    * @returns the value of the first element after removing it from the list, returns null if the list is empty
    */
-  deleteFirst(): number | null {
+  deleteFirst(): T | null {
     const head = this._head;
     if (!this.isEmpty()) {
       this._head = head ? head.next : null;
@@ -96,7 +97,7 @@ export default class SingleLinkedList<T> extends LinkedList<T> {
   /**
    * @returns the value of the last element after removing it from the list, returns null if the list is empty
    */
-  deleteLast(): number | null {
+  deleteLast(): T | null {
     const tail = this._tail;
     if (!this.isEmpty()) {
       let current = this._head;
@@ -117,25 +118,47 @@ export default class SingleLinkedList<T> extends LinkedList<T> {
    * @returns the value of the provided element after removing it from the list, if the list is empty or element is not
    * present, returns null
    */
-  delete(data: T): number | null {
-    // todo
+  delete(data: T): T | null {
+    let current = this._head;
+    let prev = null;
+    while (current) {
+      if (current.value === data) {
+        if (current.index === 0) return this.deleteFirst();
+        else if (current.index === this.size - 1) return this.deleteLast();
+        else {
+          if (prev) prev.next = current.next;
+          current.next = null;
+          this._size--;
+          return current.value;
+        }
+      }
+      prev = current;
+      current = current.next;
+    }
     return null;
   }
 
   /**
    * @param index the index of the element in the list to delete
    * @returns the value of the element deleted at the specified index. If index not in range, or element is
+   * @throws ListIndexOutOfBoundsError if the specified index is less than starting index and greater than end index
    */
-  deleteAt(index: number): number | null {
-    if (index < 0 || index > this._size - 1) throw error("Invalid index!");
-    let current = this._head;
-    let prev = null;
-    while (current && current.index < index) {
-      prev = current;
-      current = current.next;
+  deleteAt(index: number): T | null {
+    if (index < 0 || index > this._size - 1)
+      throw error("ListIndexOutOfBoundsError");
+    if (index === 0) return this.deleteFirst();
+    else if (index === this._size - 1) return this.deleteLast();
+    else {
+      let current: LinkedNode<T> | any = this._head;
+      while (current && current.index < index - 1) {
+        current = current.next;
+      }
+      const deleteNode = current.next;
+      current.next = deleteNode.next;
+      deleteNode.next = null;
+      this._size--;
+      return deleteNode.value;
     }
-    // todo
-    return null;
   }
 
   /**

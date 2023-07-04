@@ -56,11 +56,11 @@ class SingleLinkedList extends LinkedList_1.default {
   /**
    * @param index index at which the given element to be inserted
    * @param data data element to be inserted
-   * @throws Invalid index error if the specified index is less than starting index and greater than end index
+   * @throws ListIndexOutOfBoundsError if the specified index is less than starting index and greater than end index
    */
   insertAt(index, data) {
     if (index < 0 || index > this.size - 1)
-      throw (0, console_1.error)("Invalid index!");
+      throw (0, console_1.error)("ListIndexOutOfBoundsError");
     if (index === 0) return this.insertFirst(data);
     else if (index === this._size - 1) return this.insertLast(data);
     else {
@@ -121,24 +121,45 @@ class SingleLinkedList extends LinkedList_1.default {
    * present, returns null
    */
   delete(data) {
-    // todo
+    let current = this._head;
+    let prev = null;
+    while (current) {
+      if (current.value === data) {
+        if (current.index === 0) return this.deleteFirst();
+        else if (current.index === this.size - 1) return this.deleteLast();
+        else {
+          if (prev) prev.next = current.next;
+          current.next = null;
+          this._size--;
+          return current.value;
+        }
+      }
+      prev = current;
+      current = current.next;
+    }
     return null;
   }
   /**
    * @param index the index of the element in the list to delete
    * @returns the value of the element deleted at the specified index. If index not in range, or element is
+   * @throws ListIndexOutOfBoundsError if the specified index is less than starting index and greater than end index
    */
   deleteAt(index) {
     if (index < 0 || index > this._size - 1)
-      throw (0, console_1.error)("Invalid index!");
-    let current = this._head;
-    let prev = null;
-    while (current && current.index < index) {
-      prev = current;
-      current = current.next;
+      throw (0, console_1.error)("ListIndexOutOfBoundsError");
+    if (index === 0) return this.deleteFirst();
+    else if (index === this._size - 1) return this.deleteLast();
+    else {
+      let current = this._head;
+      while (current && current.index < index - 1) {
+        current = current.next;
+      }
+      const deleteNode = current.next;
+      current.next = deleteNode.next;
+      deleteNode.next = null;
+      this._size--;
+      return deleteNode.value;
     }
-    // todo
-    return null;
   }
   /**
    * reverses the list on which the method is called upon

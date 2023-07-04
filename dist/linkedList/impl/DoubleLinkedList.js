@@ -55,7 +55,7 @@ class DoubleLinkedList extends LinkedList_1.default {
   /**
    * @param index index at which the given element to be inserted
    * @param data data element to be inserted
-   * @throws Invalid index error if the specified index is less than starting index and greater than end index
+   * @throws ListIndexOutOfBoundsError if the specified index is less than starting index and greater than end index
    */
   insertAt(index, data) {
     if (index < 0 || index > this.size - 1)
@@ -128,6 +128,7 @@ class DoubleLinkedList extends LinkedList_1.default {
   /**
    * @param index the index of the element in the list to delete
    * @returns the value of the element deleted at the specified index. If index not in range, or element is
+   * @throws ListIndexOutOfBoundsError if the specified index is less than starting index and greater than end index
    */
   deleteAt(index) {
     // todo
