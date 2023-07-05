@@ -1,5 +1,5 @@
 ## **collections-utils-ts**
-##### A simple TypeScript based JS library for different collections available in Java.
+##### A simple TypeScript based JS library for some of the collections available in Java.
 
 ### **Install**
 > npm install --save collections-utils-ts
