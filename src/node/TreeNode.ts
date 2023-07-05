@@ -3,7 +3,7 @@
  * a class representing the basic element of any form of binary tree.
  */
 
-import NodeValue from "./Node";
+import NodeValue from "./NodeValue";
 
 /**
  * a class representing the basic element of any form of binary tree having value inherited from {@link NodeValue} class,

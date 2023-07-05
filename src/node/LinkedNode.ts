@@ -2,7 +2,7 @@
  * @author Prithwish Samanta
  */
 
-import NodeValue from "./Node";
+import NodeValue from "./NodeValue";
 
 /**
  * a class representing a basic element of a linked list having properties - value inherited from {@link NodeValue} class,
