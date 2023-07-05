@@ -2,7 +2,7 @@
  * @author Prithwish Samanta
  */
 /**
- *
+ *  an abstract class with value property, to be inherited by various kinds of node types used in a linked list or a tree
  */
 export default abstract class NodeValue<T> {
   protected _value: T | any;

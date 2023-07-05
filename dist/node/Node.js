@@ -4,7 +4,7 @@
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 /**
- *
+ *  an abstract class with value property, to be inherited by various kinds of node types used in a linked list or a tree
  */
 class NodeValue {
   constructor(value) {
