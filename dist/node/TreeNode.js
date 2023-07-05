@@ -3,13 +3,20 @@
  * @author Prithwish Samanta
  * a class representing the basic element of any form of binary tree.
  */
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
 Object.defineProperty(exports, "__esModule", { value: true });
+const Node_1 = __importDefault(require("./Node"));
 /**
- * a class representing the basic element of any form of binary tree having value, left (left child reference), right (right child reference), when added in a Tree instance.
+ * a class representing the basic element of any form of binary tree having value inherited from {@link NodeValue} class,
+ * left (left child reference), right (right child reference), when added in a Tree instance.
  */
-class TreeNode {
+class TreeNode extends Node_1.default {
   constructor(value, left, right) {
-    this._value = value;
+    super(value);
     this._left = left;
     this._right = right;
   }

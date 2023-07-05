@@ -107,7 +107,11 @@ export default class SingleLinkedList<T> extends LinkedList<T> {
         current = current.next;
       }
       this._tail = prev;
-      this._head = this._tail ? this._tail : null; // current list is empty after removing tail
+      if (prev) prev.next = null;
+      if (!this._tail) {
+        // current list is empty after removing tail
+        this._head = null;
+      }
       this._size--;
     }
     return tail ? tail.value : null;

@@ -2,22 +2,23 @@
 /**
  * @author Prithwish Samanta
  */
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
 Object.defineProperty(exports, "__esModule", { value: true });
+const Node_1 = __importDefault(require("./Node"));
 /**
- * a class representing a basic element of a linked list having properties - value, prev (preceding node reference), next (following node reference) and index of the node
+ * a class representing a basic element of a linked list having properties - value inherited from {@link NodeValue} class,
+ * prev (preceding node reference), next (following node reference) and index of the node
  */
-class LinkedNode {
+class LinkedNode extends Node_1.default {
   constructor(value, next, index, prev = null) {
-    this._value = value;
+    super(value);
     this._next = next;
     this._index = index;
     this._prev = prev;
-  }
-  get value() {
-    return this._value;
-  }
-  set value(v) {
-    this._value = v;
   }
   get next() {
     return this._next;

@@ -1,11 +1,12 @@
 /**
  * @author Prithwish Samanta
  */
+import NodeValue from "./Node";
 /**
- * a class representing a basic element of a linked list having properties - value, prev (preceding node reference), next (following node reference) and index of the node
+ * a class representing a basic element of a linked list having properties - value inherited from {@link NodeValue} class,
+ * prev (preceding node reference), next (following node reference) and index of the node
  */
-export default class LinkedNode<T> {
-  private _value;
+export default class LinkedNode<T> extends NodeValue<T> {
   private _next;
   private _index;
   private _prev;
@@ -15,8 +16,6 @@ export default class LinkedNode<T> {
     index: number,
     prev?: LinkedNode<T> | null
   );
-  get value(): T | any;
-  set value(v: T | any);
   get next(): LinkedNode<T> | null;
   set next(node: LinkedNode<T> | null);
   get index(): number;
