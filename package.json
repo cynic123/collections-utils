@@ -39,7 +39,7 @@
   "keywords": [],
   "author": "Prithwish Samanta",
   "license": "ISC",
-  "description": "A simple TypeScript based JS library for different collections available in Java.",
+  "description": "A simple TypeScript based JS library for some of the collections available in Java.",
   "files": [
     "dist",
     ".prettierrc",

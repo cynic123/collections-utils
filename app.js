@@ -36,5 +36,5 @@ dList.insertAt(2, 5);
 console.log(dList.print());
 console.log('--------------------------------------------------------');
 console.log(palindromeList.print());
-palindromeList.deleteAt(3);
+palindromeList.deleteAt(2);
 console.log(palindromeList.print());
