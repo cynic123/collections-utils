@@ -8,12 +8,12 @@ var __importDefault =
     return mod && mod.__esModule ? mod : { default: mod };
   };
 Object.defineProperty(exports, "__esModule", { value: true });
-const Node_1 = __importDefault(require("./Node"));
+const NodeValue_1 = __importDefault(require("./NodeValue"));
 /**
  * a class representing a basic element of a linked list having properties - value inherited from {@link NodeValue} class,
  * prev (preceding node reference), next (following node reference) and index of the node
  */
-class LinkedNode extends Node_1.default {
+class LinkedNode extends NodeValue_1.default {
   constructor(value, next, index, prev = null) {
     super(value);
     this._next = next;
