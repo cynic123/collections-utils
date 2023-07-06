@@ -1,17 +1,17 @@
 /**
  * @author Prithwish Samanta
  */
-import LinkedNode from "../../node/LinkedNode";
+import ListNode from "../../node/ListNode";
 /**
  * an abstract class defining a linked list data structure and common operations performed on it
  */
 export default abstract class LinkedList<T> {
-  protected _head: LinkedNode<T> | null;
-  protected _tail: LinkedNode<T> | null;
+  protected _head: ListNode<T> | null;
+  protected _tail: ListNode<T> | null;
   protected _size: number;
   protected constructor();
-  protected get head(): LinkedNode<T> | null;
-  protected get tail(): LinkedNode<T> | null;
+  protected get head(): ListNode<T> | null;
+  protected get tail(): ListNode<T> | null;
   get size(): number;
   /**
    * method which inserts the given data at the beginning
@@ -88,7 +88,7 @@ export default abstract class LinkedList<T> {
    *
    * @returns middle node of the list
    */
-  middleNode(): LinkedNode<T> | null;
+  middleNode(): ListNode<T> | null;
   /**
    *
    * @returns element at the middle of the list, or undefined if the list is empty
@@ -99,7 +99,7 @@ export default abstract class LinkedList<T> {
    * @param index
    * @returns node at the specified index
    */
-  nodeAt(index: number): LinkedNode<T> | null;
+  nodeAt(index: number): ListNode<T> | null;
   /**
    *
    * @returns returns a new array containing the elements of the linked list in their original order, returns null if the

@@ -22,8 +22,8 @@ const LinkedList_1 = __importDefault(
   require("./linkedList/abstract/LinkedList")
 );
 exports.LinkedList = LinkedList_1.default;
-const LinkedNode_1 = __importDefault(require("./node/LinkedNode"));
-exports.LinkedNode = LinkedNode_1.default;
+const ListNode_1 = __importDefault(require("./node/ListNode"));
+exports.LinkedNode = ListNode_1.default;
 const SingleLinkedList_1 = __importDefault(
   require("./linkedList/impl/SingleLinkedList")
 );

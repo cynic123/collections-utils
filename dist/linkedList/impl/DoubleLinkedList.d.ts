@@ -59,7 +59,7 @@ export default class DoubleLinkedList<T> extends LinkedList<T> {
   subList(start: number, end: number): LinkedList<T | any>;
   /**
    * @param  {...any} args variable number of elements to be added to the list
-   * @returns an instance of the {@link DoubleLinkedList} class, having nodes of {@link LinkedNode} instances added in a
+   * @returns an instance of the {@link DoubleLinkedList} class, having nodes of {@link ListNode} instances added in a
    * sequential order
    */
   static create(...args: any[]): LinkedList<any>;

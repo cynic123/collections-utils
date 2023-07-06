@@ -10,7 +10,7 @@ var __importDefault =
 Object.defineProperty(exports, "__esModule", { value: true });
 const console_1 = require("console");
 const LinkedList_1 = __importDefault(require("../abstract/LinkedList"));
-const LinkedNode_1 = __importDefault(require("../../node/LinkedNode"));
+const ListNode_1 = __importDefault(require("../../node/ListNode"));
 /**
  * A doubly linked list implementation of {@link LinkedList} class, with each node having references to both preceding and
  * following nodes
@@ -25,7 +25,7 @@ class DoubleLinkedList extends LinkedList_1.default {
    */
   insertFirst(data) {
     const currHead = this._head;
-    const newNode = new LinkedNode_1.default(data, currHead, 0);
+    const newNode = new ListNode_1.default(data, currHead, 0);
     this._head = newNode;
     if (!currHead) this._tail = newNode;
     else currHead.prev = newNode;
@@ -43,7 +43,7 @@ class DoubleLinkedList extends LinkedList_1.default {
    */
   insertLast(data) {
     const currTail = this._tail;
-    const newNode = new LinkedNode_1.default(data, null, this.size, currTail);
+    const newNode = new ListNode_1.default(data, null, this.size, currTail);
     this._tail = newNode;
     if (!currTail) {
       this._head = newNode;
@@ -67,7 +67,7 @@ class DoubleLinkedList extends LinkedList_1.default {
       while (current && current.index < index - 1) {
         current = current.next;
       }
-      const temp = new LinkedNode_1.default(
+      const temp = new ListNode_1.default(
         data,
         current.next,
         current.index + 1,
@@ -181,7 +181,7 @@ class DoubleLinkedList extends LinkedList_1.default {
   }
   /**
    * @param  {...any} args variable number of elements to be added to the list
-   * @returns an instance of the {@link DoubleLinkedList} class, having nodes of {@link LinkedNode} instances added in a
+   * @returns an instance of the {@link DoubleLinkedList} class, having nodes of {@link ListNode} instances added in a
    * sequential order
    */
   static create(...args) {

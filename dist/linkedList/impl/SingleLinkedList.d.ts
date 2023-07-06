@@ -2,13 +2,13 @@
  * @author Prithwish Samanta
  */
 import LinkedList from "../abstract/LinkedList";
-import LinkedNode from "../../node/LinkedNode";
+import ListNode from "../../node/ListNode";
 /**
  * A singly linked list implementation of {@link LinkedList} class, with each node having references to only the following node
  */
 export default class SingleLinkedList<T> extends LinkedList<T> {
   constructor();
-  get head(): LinkedNode<T> | null;
+  get head(): ListNode<T> | null;
   /**
    * method which inserts the given data at the beginning
    * @param data
@@ -60,7 +60,7 @@ export default class SingleLinkedList<T> extends LinkedList<T> {
   subList(start: number, end: number): LinkedList<T | any>;
   /**
    * @param  {...any} args variable number of elements to be added to the list
-   * @returns an instance of the {@link SingleLinkedList} class, having nodes of {@link LinkedNode} instances added in a
+   * @returns an instance of the {@link SingleLinkedList} class, having nodes of {@link ListNode} instances added in a
    * sequential order
    */
   static create(...args: any[]): LinkedList<any>;

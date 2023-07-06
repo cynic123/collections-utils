@@ -64,12 +64,7 @@ export default class DoubleLinkedList<T> extends LinkedList<T> {
       while (current && current.index < index - 1) {
         current = current.next;
       }
-      const temp = new ListNode(
-        data,
-        current.next,
-        current.index + 1,
-        current
-      );
+      const temp = new ListNode(data, current.next, current.index + 1, current);
       current.next = temp;
       current = current.next.next;
       while (current) {
