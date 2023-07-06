@@ -3,14 +3,14 @@
  */
 
 import { error } from "console";
-import LinkedNode from "../../node/LinkedNode";
+import ListNode from "../../node/ListNode";
 
 /**
  * an abstract class defining a linked list data structure and common operations performed on it
  */
 export default abstract class LinkedList<T> {
-  protected _head: LinkedNode<T> | null;
-  protected _tail: LinkedNode<T> | null;
+  protected _head: ListNode<T> | null;
+  protected _tail: ListNode<T> | null;
   protected _size: number;
 
   protected constructor() {
@@ -19,11 +19,11 @@ export default abstract class LinkedList<T> {
     this._size = 0;
   }
 
-  protected get head(): LinkedNode<T> | null {
+  protected get head(): ListNode<T> | null {
     return this._head;
   }
 
-  protected get tail(): LinkedNode<T> | null {
+  protected get tail(): ListNode<T> | null {
     return this._tail;
   }
 
@@ -137,9 +137,9 @@ export default abstract class LinkedList<T> {
    *
    * @returns middle node of the list
    */
-  middleNode(): LinkedNode<T> | null {
-    let slow: LinkedNode<T> | any = this._head;
-    let fast: LinkedNode<T> | any = this._head;
+  middleNode(): ListNode<T> | null {
+    let slow: ListNode<T> | any = this._head;
+    let fast: ListNode<T> | any = this._head;
     while (fast && fast.next) {
       slow = slow.next;
       fast = fast.next.next;
@@ -160,7 +160,7 @@ export default abstract class LinkedList<T> {
    * @param index
    * @returns node at the specified index
    */
-  nodeAt(index: number): LinkedNode<T> | null {
+  nodeAt(index: number): ListNode<T> | null {
     if (index < 0 || index >= this._size) {
       throw error("Invalid index!");
     }
@@ -177,7 +177,7 @@ export default abstract class LinkedList<T> {
    * list is empty
    */
   toArray(): number[] | null {
-    let current: LinkedNode<T> | null = this._head;
+    let current: ListNode<T> | null = this._head;
     const arr: number[] = [];
     while (current) {
       arr[current.index] = current.value;

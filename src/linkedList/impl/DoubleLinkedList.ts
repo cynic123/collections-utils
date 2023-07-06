@@ -4,7 +4,7 @@
 
 import { error } from "console";
 import LinkedList from "../abstract/LinkedList";
-import LinkedNode from "../../node/LinkedNode";
+import ListNode from "../../node/ListNode";
 
 /**
  * A doubly linked list implementation of {@link LinkedList} class, with each node having references to both preceding and
@@ -21,7 +21,7 @@ export default class DoubleLinkedList<T> extends LinkedList<T> {
    */
   protected insertFirst(data: T): void {
     const currHead = this._head;
-    const newNode = new LinkedNode(data, currHead, 0);
+    const newNode = new ListNode(data, currHead, 0);
     this._head = newNode;
     if (!currHead) this._tail = newNode;
     else currHead.prev = newNode;
@@ -40,7 +40,7 @@ export default class DoubleLinkedList<T> extends LinkedList<T> {
    */
   protected insertLast(data: T): void {
     const currTail = this._tail;
-    const newNode = new LinkedNode(data, null, this.size, currTail);
+    const newNode = new ListNode(data, null, this.size, currTail);
     this._tail = newNode;
     if (!currTail) {
       this._head = newNode;
@@ -60,11 +60,11 @@ export default class DoubleLinkedList<T> extends LinkedList<T> {
     if (index === 0) return this.insertFirst(data);
     else if (index === this._size - 1) return this.insertLast(data);
     else {
-      let current: LinkedNode<T> | any = this._head;
+      let current: ListNode<T> | any = this._head;
       while (current && current.index < index - 1) {
         current = current.next;
       }
-      const temp = new LinkedNode(
+      const temp = new ListNode(
         data,
         current.next,
         current.index + 1,
@@ -182,7 +182,7 @@ export default class DoubleLinkedList<T> extends LinkedList<T> {
 
   /**
    * @param  {...any} args variable number of elements to be added to the list
-   * @returns an instance of the {@link DoubleLinkedList} class, having nodes of {@link LinkedNode} instances added in a
+   * @returns an instance of the {@link DoubleLinkedList} class, having nodes of {@link ListNode} instances added in a
    * sequential order
    */
   static create(...args: any[]): LinkedList<any> {

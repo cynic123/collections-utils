@@ -8,16 +8,16 @@ import NodeValue from "./NodeValue";
  * a class representing a basic element of a linked list having properties - value inherited from {@link NodeValue} class,
  * prev (preceding node reference), next (following node reference) and index of the node
  */
-export default class LinkedNode<T> extends NodeValue<T> {
-  private _next: LinkedNode<T> | null;
+export default class ListNode<T> extends NodeValue<T> {
+  private _next: ListNode<T> | null;
   private _index: number;
-  private _prev: LinkedNode<T> | null;
+  private _prev: ListNode<T> | null;
 
   constructor(
     value: T,
-    next: LinkedNode<T> | null,
+    next: ListNode<T> | null,
     index: number,
-    prev: LinkedNode<T> | null = null
+    prev: ListNode<T> | null = null
   ) {
     super(value);
     this._next = next;
@@ -25,11 +25,11 @@ export default class LinkedNode<T> extends NodeValue<T> {
     this._prev = prev;
   }
 
-  get next(): LinkedNode<T> | null {
+  get next(): ListNode<T> | null {
     return this._next;
   }
 
-  set next(node: LinkedNode<T> | null) {
+  set next(node: ListNode<T> | null) {
     this._next = node;
   }
 
@@ -41,11 +41,11 @@ export default class LinkedNode<T> extends NodeValue<T> {
     this._index = v;
   }
 
-  get prev(): LinkedNode<T> | null {
+  get prev(): ListNode<T> | null {
     return this._prev;
   }
 
-  set prev(node: LinkedNode<T> | null) {
+  set prev(node: ListNode<T> | null) {
     this._prev = node;
   }
 
