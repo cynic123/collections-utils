@@ -27,7 +27,7 @@ class LinkedList {
    * @param data
    */
   add(data) {
-    this.insertLast(data);
+    this.insert(data);
   }
   /**
    * deletes the given element from the collection

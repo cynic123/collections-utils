@@ -19,7 +19,7 @@ export default class DoubleLinkedList<T> extends LinkedList<T> {
    * inserts the given element at the beginning of the list
    * @param data
    */
-  protected insertFirst(data: T): void {
+  insertFirst(data: T): void {
     const currHead = this._head;
     const newNode = new ListNode(data, currHead, 0);
     this._head = newNode;
@@ -38,7 +38,7 @@ export default class DoubleLinkedList<T> extends LinkedList<T> {
    * @param data
    * @param index
    */
-  protected insertLast(data: T): void {
+  insertLast(data: T): void {
     const currTail = this._tail;
     const newNode = new ListNode(data, null, this.size, currTail);
     this._tail = newNode;

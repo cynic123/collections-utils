@@ -101,7 +101,7 @@ export default abstract class LinkedList<T> implements Collection<T> {
    * @param data
    */
   add(data: T) {
-    this.insertLast(data);
+    this.insert(data);
   }
 
   /**
