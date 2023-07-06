@@ -14,19 +14,17 @@ exports.TreeNode =
 /**
  * @author Prithwish Samanta
  */
-const DoubleLinkedList_1 = __importDefault(
+var DoubleLinkedList_1 = __importDefault(
   require("./linkedList/impl/DoubleLinkedList")
 );
 exports.DoubleLinkedList = DoubleLinkedList_1.default;
-const LinkedList_1 = __importDefault(
-  require("./linkedList/abstract/LinkedList")
-);
+var LinkedList_1 = __importDefault(require("./linkedList/abstract/LinkedList"));
 exports.LinkedList = LinkedList_1.default;
-const ListNode_1 = __importDefault(require("./node/ListNode"));
+var ListNode_1 = __importDefault(require("./node/ListNode"));
 exports.ListNode = ListNode_1.default;
-const SingleLinkedList_1 = __importDefault(
+var SingleLinkedList_1 = __importDefault(
   require("./linkedList/impl/SingleLinkedList")
 );
 exports.SingleLinkedList = SingleLinkedList_1.default;
-const TreeNode_1 = __importDefault(require("./node/TreeNode"));
+var TreeNode_1 = __importDefault(require("./node/TreeNode"));
 exports.TreeNode = TreeNode_1.default;

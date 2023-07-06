@@ -2,26 +2,64 @@
 /**
  * @author Prithwish Samanta
  */
+var __extends =
+  (this && this.__extends) ||
+  (function () {
+    var extendStatics = function (d, b) {
+      extendStatics =
+        Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array &&
+          function (d, b) {
+            d.__proto__ = b;
+          }) ||
+        function (d, b) {
+          for (var p in b)
+            if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p];
+        };
+      return extendStatics(d, b);
+    };
+    return function (d, b) {
+      if (typeof b !== "function" && b !== null)
+        throw new TypeError(
+          "Class extends value " + String(b) + " is not a constructor or null"
+        );
+      extendStatics(d, b);
+      function __() {
+        this.constructor = d;
+      }
+      d.prototype =
+        b === null
+          ? Object.create(b)
+          : ((__.prototype = b.prototype), new __());
+    };
+  })();
 var __importDefault =
   (this && this.__importDefault) ||
   function (mod) {
     return mod && mod.__esModule ? mod : { default: mod };
   };
 Object.defineProperty(exports, "__esModule", { value: true });
-const LinkedQueue_1 = __importDefault(require("./LinkedQueue"));
+var LinkedQueue_1 = __importDefault(require("./LinkedQueue"));
 /**
  * A LinkedQueue implementation with size restrictions imposed
  */
-class FixedLinkedQueue extends LinkedQueue_1.default {
-  constructor(size) {
-    super();
-    this._size = size;
+var FixedLinkedQueue = /** @class */ (function (_super) {
+  __extends(FixedLinkedQueue, _super);
+  function FixedLinkedQueue(size) {
+    var _this = _super.call(this) || this;
+    _this._size = size;
+    return _this;
   }
-  get size() {
-    return this._size;
-  }
-  set size(size) {
-    this._size = size;
-  }
-}
+  Object.defineProperty(FixedLinkedQueue.prototype, "size", {
+    get: function () {
+      return this._size;
+    },
+    set: function (size) {
+      this._size = size;
+    },
+    enumerable: false,
+    configurable: true,
+  });
+  return FixedLinkedQueue;
+})(LinkedQueue_1.default);
 exports.default = FixedLinkedQueue;
