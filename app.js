@@ -34,6 +34,8 @@ console.log('Reversed doubly list:', dList.print());
 console.log('Palindrome:', dList.palindrome());
 dList.insertAt(2, 5);
 console.log(dList.print());
+dList.deleteAt(2);
+console.log(dList.print());
 console.log('--------------------------------------------------------');
 console.log(palindromeList.print());
 palindromeList.deleteAt(2);

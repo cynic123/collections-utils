@@ -130,7 +130,20 @@ class DoubleLinkedList extends LinkedList_1.default {
    * present, returns null
    */
   delete(data) {
-    // todo
+    let current = this._head;
+    while (current) {
+      if (current.value === data) {
+        if (current.index === 0) return this.deleteFirst();
+        else if (current.index === this.size - 1) return this.deleteLast();
+        else {
+          current.prev.next = current.next;
+          current.next = null;
+          current.prev = null;
+          return current.value;
+        }
+      }
+      current = current.next;
+    }
     return null;
   }
   /**
@@ -139,8 +152,23 @@ class DoubleLinkedList extends LinkedList_1.default {
    * @throws ListIndexOutOfBoundsError if the specified index is less than starting index and greater than end index
    */
   deleteAt(index) {
-    // todo
-    return null;
+    if (index < 0 || index > this._size - 1)
+      throw (0, console_1.error)("ListIndexOutOfBoundsError");
+    if (index === 0) return this.deleteFirst();
+    else if (index === this._size - 1) return this.deleteLast();
+    else {
+      let current = this._head;
+      while (current && current.index < index - 1) {
+        current = current.next;
+      }
+      const deleteNode = current.next;
+      current.next = deleteNode.next;
+      current.next.prev = current;
+      deleteNode.next = null;
+      deleteNode.prev = null;
+      this._size--;
+      return deleteNode.value;
+    }
   }
   /**
    * reverses the list on which the method is called upon
