@@ -12,15 +12,15 @@ const console_1 = require("console");
 const LinkedList_1 = __importDefault(require("../abstract/LinkedList"));
 const ListNode_1 = __importDefault(require("../../node/ListNode"));
 /**
- * A doubly linked list implementation of {@link LinkedList} class, with each node having references to both preceding and
- * following nodes
+ * A doubly linked list implementation of {@link LinkedList} class, where each node are an instance of the {@link ListNode}
+ * class, containing references to both the preceding and the following nodes in the list
  */
 class DoubleLinkedList extends LinkedList_1.default {
   constructor() {
     super();
   }
   /**
-   * method which inserts the given data at the beginning
+   * inserts the given element at the beginning of the list
    * @param data
    */
   insertFirst(data) {
@@ -37,7 +37,7 @@ class DoubleLinkedList extends LinkedList_1.default {
     this._size++;
   }
   /**
-   * method which inserts the given data at the end
+   * inserts the given element at the end of the list
    * @param data
    * @param index
    */
@@ -53,6 +53,7 @@ class DoubleLinkedList extends LinkedList_1.default {
     this._size++;
   }
   /**
+   * inserts the given element at the provided index of the list
    * @param index index at which the given element to be inserted
    * @param data data element to be inserted
    * @throws ListIndexOutOfBoundsError if the specified index is less than starting index and greater than end index
@@ -81,6 +82,13 @@ class DoubleLinkedList extends LinkedList_1.default {
       }
       this._size++;
     }
+  }
+  /**
+   * inserts the given element at the end of the list
+   * @param data data element to be inserted
+   */
+  insert(data) {
+    this.insertLast(data);
   }
   /**
    * @returns the value of the first element after removing it from the list, returns null if the list is empty

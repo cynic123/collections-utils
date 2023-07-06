@@ -14,22 +14,28 @@ export default abstract class LinkedList<T> {
   protected get tail(): ListNode<T> | null;
   get size(): number;
   /**
-   * method which inserts the given data at the beginning
+   * inserts the given element at the beginning of the list
    * @param data
    */
   protected abstract insertFirst(data: T): void;
   /**
-   * method which inserts the given data at the end
+   * inserts the given element at the end of the list
    * @param data
    * @param index
    */
   protected abstract insertLast(data: T): void;
   /**
+   * inserts the given element at the provided index of the list
    * @param index index at which the given element to be inserted
    * @param data data element to be inserted
    * @throws ListIndexOutOfBoundsError if the specified index is less than starting index and greater than end index
    */
   protected abstract insertAt(index: number, data: T): void;
+  /**
+   * inserts the given element at the end of the list
+   * @param data data element to be inserted
+   */
+  protected abstract insert(data: T): void;
   /**
    * @returns the value of the first element after removing it from the list, if the list is empty returns null
    */

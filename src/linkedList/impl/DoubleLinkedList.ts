@@ -7,8 +7,8 @@ import LinkedList from "../abstract/LinkedList";
 import ListNode from "../../node/ListNode";
 
 /**
- * A doubly linked list implementation of {@link LinkedList} class, with each node having references to both preceding and
- * following nodes
+ * A doubly linked list implementation of {@link LinkedList} class, where each node are an instance of the {@link ListNode}
+ * class, containing references to both the preceding and the following nodes in the list
  */
 export default class DoubleLinkedList<T> extends LinkedList<T> {
   constructor() {
@@ -16,7 +16,7 @@ export default class DoubleLinkedList<T> extends LinkedList<T> {
   }
 
   /**
-   * method which inserts the given data at the beginning
+   * inserts the given element at the beginning of the list
    * @param data
    */
   protected insertFirst(data: T): void {
@@ -34,7 +34,7 @@ export default class DoubleLinkedList<T> extends LinkedList<T> {
   }
 
   /**
-   * method which inserts the given data at the end
+   * inserts the given element at the end of the list
    * @param data
    * @param index
    */
@@ -51,6 +51,7 @@ export default class DoubleLinkedList<T> extends LinkedList<T> {
   }
 
   /**
+   * inserts the given element at the provided index of the list
    * @param index index at which the given element to be inserted
    * @param data data element to be inserted
    * @throws ListIndexOutOfBoundsError if the specified index is less than starting index and greater than end index
@@ -73,6 +74,14 @@ export default class DoubleLinkedList<T> extends LinkedList<T> {
       }
       this._size++;
     }
+  }
+
+  /**
+   * inserts the given element at the end of the list
+   * @param data data element to be inserted
+   */
+  insert(data: T): void {
+    this.insertLast(data);
   }
 
   /**

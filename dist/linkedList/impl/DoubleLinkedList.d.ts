@@ -3,28 +3,34 @@
  */
 import LinkedList from "../abstract/LinkedList";
 /**
- * A doubly linked list implementation of {@link LinkedList} class, with each node having references to both preceding and
- * following nodes
+ * A doubly linked list implementation of {@link LinkedList} class, where each node are an instance of the {@link ListNode}
+ * class, containing references to both the preceding and the following nodes in the list
  */
 export default class DoubleLinkedList<T> extends LinkedList<T> {
   constructor();
   /**
-   * method which inserts the given data at the beginning
+   * inserts the given element at the beginning of the list
    * @param data
    */
   protected insertFirst(data: T): void;
   /**
-   * method which inserts the given data at the end
+   * inserts the given element at the end of the list
    * @param data
    * @param index
    */
   protected insertLast(data: T): void;
   /**
+   * inserts the given element at the provided index of the list
    * @param index index at which the given element to be inserted
    * @param data data element to be inserted
    * @throws ListIndexOutOfBoundsError if the specified index is less than starting index and greater than end index
    */
   insertAt(index: number, data: T): void;
+  /**
+   * inserts the given element at the end of the list
+   * @param data data element to be inserted
+   */
+  insert(data: T): void;
   /**
    * @returns the value of the first element after removing it from the list, returns null if the list is empty
    */
