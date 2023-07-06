@@ -7,7 +7,7 @@ var __importDefault =
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TreeNode =
   exports.SingleLinkedList =
-  exports.LinkedNode =
+  exports.ListNode =
   exports.LinkedList =
   exports.DoubleLinkedList =
     void 0;
@@ -23,7 +23,7 @@ const LinkedList_1 = __importDefault(
 );
 exports.LinkedList = LinkedList_1.default;
 const ListNode_1 = __importDefault(require("./node/ListNode"));
-exports.LinkedNode = ListNode_1.default;
+exports.ListNode = ListNode_1.default;
 const SingleLinkedList_1 = __importDefault(
   require("./linkedList/impl/SingleLinkedList")
 );

@@ -7,10 +7,4 @@ import ListNode from "./node/ListNode";
 import SingleLinkedList from "./linkedList/impl/SingleLinkedList";
 import TreeNode from "./node/TreeNode";
 
-export {
-  DoubleLinkedList,
-  LinkedList,
-  ListNode as LinkedNode,
-  SingleLinkedList,
-  TreeNode,
-};
+export { DoubleLinkedList, LinkedList, ListNode, SingleLinkedList, TreeNode };

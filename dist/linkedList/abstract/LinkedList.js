@@ -30,10 +30,26 @@ class LinkedList {
     this.insertLast(data);
   }
   /**
+   * deletes the given element from the collection
+   * @param data element to be deleted from the list
+   * @returns the value of the element deleted
+   */
+  remove(data) {
+    return this.delete(data);
+  }
+  /**
    * @returns true if the list is epmty, else false
    */
   isEmpty() {
     return !this._head && !this._tail && this._size === 0;
+  }
+  /**
+   * removes all elements from the list
+   */
+  clear() {
+    this._head = null;
+    this._tail = null;
+    this._size = 0;
   }
   /**
    *
@@ -117,7 +133,7 @@ class LinkedList {
       arr[current.index] = current.value;
       current = current.next;
     }
-    return arr.length ? arr : null;
+    return arr;
   }
   /**
    *

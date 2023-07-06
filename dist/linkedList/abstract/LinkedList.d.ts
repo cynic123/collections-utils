@@ -2,10 +2,11 @@
  * @author Prithwish Samanta
  */
 import ListNode from "../../node/ListNode";
+import Collection from "../../abstract/Collection";
 /**
  * an abstract class defining a linked list data structure and common operations performed on it
  */
-export default abstract class LinkedList<T> {
+export default abstract class LinkedList<T> implements Collection<T> {
   protected _head: ListNode<T> | null;
   protected _tail: ListNode<T> | null;
   protected _size: number;
@@ -73,9 +74,19 @@ export default abstract class LinkedList<T> {
    */
   add(data: T): void;
   /**
+   * deletes the given element from the collection
+   * @param data element to be deleted from the list
+   * @returns the value of the element deleted
+   */
+  remove(data: T): T | null;
+  /**
    * @returns true if the list is epmty, else false
    */
   isEmpty(): boolean;
+  /**
+   * removes all elements from the list
+   */
+  clear(): void;
   /**
    *
    * @returns the value of the head element of the list if present, otherwise undefined
@@ -111,7 +122,7 @@ export default abstract class LinkedList<T> {
    * @returns returns a new array containing the elements of the linked list in their original order, returns null if the
    * list is empty
    */
-  toArray(): number[] | null;
+  toArray(): T[];
   /**
    *
    * @param other other list (an instance of {@link LinkedList}) to compare to
