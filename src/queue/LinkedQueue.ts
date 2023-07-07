@@ -3,17 +3,17 @@
  */
 
 import LinkedList from "../abstract/LinkedList";
-import SingleLinkedList from "../linkedList/SingleLinkedList";
 import Queue from "../abstract/Queue";
+import DoubleLinkedList from "../linkedList/DoubleLinkedList";
 
 /**
- * A singly linked list based implemntation of Queue interface, having a First-In-First-Out mechanism and no size restrictions
+ * A doubly linked list based implemntation of Queue interface, having a First-In-First-Out mechanism and no size restrictions
  */
 export default class LinkedQueue<T> implements Queue<T> {
-  protected _items: LinkedList<T>;
+  protected _items: DoubleLinkedList<T>;
 
   constructor() {
-    this._items = new SingleLinkedList();
+    this._items = new DoubleLinkedList();
   }
 
   get size(): number {
@@ -36,15 +36,14 @@ export default class LinkedQueue<T> implements Queue<T> {
    * @returns the value of the first element of the queue after removing it, returns null if the queue is empty
    */
   poll(): T | null {
-    return null;
-    // todo
+    return this._items.deleteFirst();
   }
 
   /**
    * the value of the last element of the queue after removing it, returns null if the queue is empty
    */
   pollLast(): T | null {
-    throw new Error("Method not implemented.");
+    return this._items.deleteLast();
   }
 
   /**
@@ -76,5 +75,37 @@ export default class LinkedQueue<T> implements Queue<T> {
    */
   isEmpty(): boolean {
     return this._items.size === 0;
+  }
+
+  /**
+   * @returns returns a new array containing the elements of the queue in their original order, returns empty array if the
+   * queue is empty
+   */
+  toArray(): T[] {
+    return this._items.toArray();
+  }
+
+  /**
+   * removes all elements from the queue
+   */
+  clear(): void {
+    return this._items.clear();
+  }
+
+  /**
+   * inserts the given element to the end of the queue
+   * @param data data element to be inserted
+   */
+  add(data: T): void | Error {
+    return this._items.add(data);
+  }
+
+  /**
+   * deletes the given element from the queue
+   * @param data element to be deleted from the queue
+   * @returns the value of the element deleted
+   */
+  remove(data: T): T | null {
+    return this._items.remove(data);
   }
 }

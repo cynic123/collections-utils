@@ -3,11 +3,12 @@
  */
 import LinkedList from "../abstract/LinkedList";
 import Queue from "../abstract/Queue";
+import DoubleLinkedList from "../linkedList/DoubleLinkedList";
 /**
- * A singly linked list based implemntation of Queue interface, having a First-In-First-Out mechanism and no size restrictions
+ * A doubly linked list based implemntation of Queue interface, having a First-In-First-Out mechanism and no size restrictions
  */
 export default class LinkedQueue<T> implements Queue<T> {
-  protected _items: LinkedList<T>;
+  protected _items: DoubleLinkedList<T>;
   constructor();
   get size(): number;
   get items(): LinkedList<T>;
@@ -43,4 +44,24 @@ export default class LinkedQueue<T> implements Queue<T> {
    * @returns true if the queue is empty, else false
    */
   isEmpty(): boolean;
+  /**
+   * @returns returns a new array containing the elements of the queue in their original order, returns empty array if the
+   * queue is empty
+   */
+  toArray(): T[];
+  /**
+   * removes all elements from the queue
+   */
+  clear(): void;
+  /**
+   * inserts the given element to the end of the queue
+   * @param data data element to be inserted
+   */
+  add(data: T): void | Error;
+  /**
+   * deletes the given element from the queue
+   * @param data element to be deleted from the queue
+   * @returns the value of the element deleted
+   */
+  remove(data: T): T | null;
 }

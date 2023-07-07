@@ -36,13 +36,13 @@ var LinkedList = /** @class */ (function () {
   });
   /**
    * inserts the given element to the end of the linked list
-   * @param data
+   * @param data data element to be inserted
    */
   LinkedList.prototype.add = function (data) {
     this.insert(data);
   };
   /**
-   * deletes the given element from the collection
+   * deletes the given element from the list
    * @param data element to be deleted from the list
    * @returns the value of the element deleted
    */
@@ -65,7 +65,7 @@ var LinkedList = /** @class */ (function () {
   };
   /**
    *
-   * @returns the value of the head element of the list if present, otherwise undefined
+   * @returns the value of the head element of the list if present, otherwise null
    */
   LinkedList.prototype.getFirst = function () {
     var _a;
@@ -77,7 +77,7 @@ var LinkedList = /** @class */ (function () {
   };
   /**
    *
-   * @returns the value of the tail element of the list if present, otherwise undefined
+   * @returns the value of the tail element of the list if present, otherwise null
    */
   LinkedList.prototype.getLast = function () {
     return this._tail ? this._tail.value : null;
@@ -135,7 +135,7 @@ var LinkedList = /** @class */ (function () {
   };
   /**
    *
-   * @returns returns a new array containing the elements of the linked list in their original order, returns null if the
+   * @returns returns a new array containing the elements of the linked list in their original order, returns empty array if the
    * list is empty
    */
   LinkedList.prototype.toArray = function () {

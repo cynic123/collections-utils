@@ -1,10 +1,11 @@
 /**
  * @author Prithwish Samanta
  */
+import Collection from "./Collection";
 /**
  * an interface with method definitions of a Queue data structure. Can be inherited to different queue types: LinkedQueue, ProprityQueue, etc
  */
-export default interface Queue<T> {
+export default interface Queue<T> extends Collection<T> {
   /**
    * inserts an element to the queue
    * @param data element to be inserted to queue
