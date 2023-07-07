@@ -9,7 +9,7 @@ var __importDefault =
   };
 Object.defineProperty(exports, "__esModule", { value: true });
 var SingleLinkedList_1 = __importDefault(
-  require("../../linkedList/impl/SingleLinkedList")
+  require("../linkedList/SingleLinkedList")
 );
 /**
  * A singly linked list based implemntation of Queue interface, having a First-In-First-Out mechanism and no size restrictions

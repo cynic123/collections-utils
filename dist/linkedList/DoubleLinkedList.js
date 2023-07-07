@@ -41,7 +41,7 @@ var __importDefault =
 Object.defineProperty(exports, "__esModule", { value: true });
 var console_1 = require("console");
 var LinkedList_1 = __importDefault(require("../abstract/LinkedList"));
-var ListNode_1 = __importDefault(require("../../node/ListNode"));
+var ListNode_1 = __importDefault(require("../abstract/ListNode"));
 /**
  * A doubly linked list implementation of {@link LinkedList} class, where each node are an instance of the {@link ListNode}
  * class, containing references to both the preceding and the following nodes in the list

@@ -2,7 +2,7 @@
  * @author Prithwish Samanta
  */
 import LinkedList from "../abstract/LinkedList";
-import ListNode from "../../node/ListNode";
+import ListNode from "../abstract/ListNode";
 /**
  * A singly linked list implementation of {@link LinkedList} class, where each node are an instance of the {@link ListNode}
  * class, containing references to only the following node in the list

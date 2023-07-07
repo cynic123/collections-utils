@@ -1,9 +1,9 @@
 /**
  * @author Prithwish Samanta
  */
-import DoubleLinkedList from "./linkedList/impl/DoubleLinkedList";
-import LinkedList from "./linkedList/abstract/LinkedList";
-import ListNode from "./node/ListNode";
-import SingleLinkedList from "./linkedList/impl/SingleLinkedList";
-import TreeNode from "./node/TreeNode";
+import DoubleLinkedList from "./linkedList/DoubleLinkedList";
+import LinkedList from "./abstract/LinkedList";
+import ListNode from "./abstract/ListNode";
+import SingleLinkedList from "./linkedList/SingleLinkedList";
+import TreeNode from "./abstract/TreeNode";
 export { DoubleLinkedList, LinkedList, ListNode, SingleLinkedList, TreeNode };

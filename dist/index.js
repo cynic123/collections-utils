@@ -15,16 +15,16 @@ exports.TreeNode =
  * @author Prithwish Samanta
  */
 var DoubleLinkedList_1 = __importDefault(
-  require("./linkedList/impl/DoubleLinkedList")
+  require("./linkedList/DoubleLinkedList")
 );
 exports.DoubleLinkedList = DoubleLinkedList_1.default;
-var LinkedList_1 = __importDefault(require("./linkedList/abstract/LinkedList"));
+var LinkedList_1 = __importDefault(require("./abstract/LinkedList"));
 exports.LinkedList = LinkedList_1.default;
-var ListNode_1 = __importDefault(require("./node/ListNode"));
+var ListNode_1 = __importDefault(require("./abstract/ListNode"));
 exports.ListNode = ListNode_1.default;
 var SingleLinkedList_1 = __importDefault(
-  require("./linkedList/impl/SingleLinkedList")
+  require("./linkedList/SingleLinkedList")
 );
 exports.SingleLinkedList = SingleLinkedList_1.default;
-var TreeNode_1 = __importDefault(require("./node/TreeNode"));
+var TreeNode_1 = __importDefault(require("./abstract/TreeNode"));
 exports.TreeNode = TreeNode_1.default;
