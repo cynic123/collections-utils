@@ -13,7 +13,10 @@ export default abstract class LinkedList<T> implements Collection<T> {
   protected constructor();
   protected get head(): ListNode<T> | null;
   protected get tail(): ListNode<T> | null;
-  get size(): number;
+  /**
+   * @returns the size of the list
+   */
+  size(): number;
   /**
    * inserts the given element at the beginning of the list
    * @param data

@@ -10,8 +10,5 @@ export default class FixedLinkedQueue<T>
   extends LinkedQueue<T>
   implements Queue<T>
 {
-  private _size;
   constructor(size: number);
-  get size(): number;
-  private set size(value);
 }

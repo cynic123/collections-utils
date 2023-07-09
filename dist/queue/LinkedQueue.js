@@ -18,13 +18,6 @@ var LinkedQueue = /** @class */ (function () {
   function LinkedQueue() {
     this._items = new DoubleLinkedList_1.default();
   }
-  Object.defineProperty(LinkedQueue.prototype, "size", {
-    get: function () {
-      return this._items.size;
-    },
-    enumerable: false,
-    configurable: true,
-  });
   Object.defineProperty(LinkedQueue.prototype, "items", {
     get: function () {
       return this._items;
@@ -32,6 +25,12 @@ var LinkedQueue = /** @class */ (function () {
     enumerable: false,
     configurable: true,
   });
+  /**
+   * @returns the size of the queue
+   */
+  LinkedQueue.prototype.size = function () {
+    return this._items.size();
+  };
   /**
    * inserts an element to the end of the linked list based queue
    * @param data the element to be added to the end of the queue
@@ -76,7 +75,7 @@ var LinkedQueue = /** @class */ (function () {
    * @returns true if the queue is empty, else false
    */
   LinkedQueue.prototype.isEmpty = function () {
-    return this._items.size === 0;
+    return this._items.size() === 0;
   };
   /**
    * @returns returns a new array containing the elements of the queue in their original order, returns empty array if the

@@ -46,20 +46,8 @@ var LinkedQueue_1 = __importDefault(require("./LinkedQueue"));
 var FixedLinkedQueue = /** @class */ (function (_super) {
   __extends(FixedLinkedQueue, _super);
   function FixedLinkedQueue(size) {
-    var _this = _super.call(this) || this;
-    _this._size = size;
-    return _this;
+    return _super.call(this) || this;
   }
-  Object.defineProperty(FixedLinkedQueue.prototype, "size", {
-    get: function () {
-      return this._size;
-    },
-    set: function (size) {
-      this._size = size;
-    },
-    enumerable: false,
-    configurable: true,
-  });
   return FixedLinkedQueue;
 })(LinkedQueue_1.default);
 exports.default = FixedLinkedQueue;

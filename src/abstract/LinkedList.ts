@@ -28,7 +28,10 @@ export default abstract class LinkedList<T> implements Collection<T> {
     return this._tail;
   }
 
-  get size(): number {
+  /**
+   * @returns the size of the list
+   */
+  size(): number {
     return this._size;
   }
 
@@ -239,10 +242,10 @@ export default abstract class LinkedList<T> implements Collection<T> {
     if (!this._head || !this._head.next) {
       return true;
     }
-    const mid = Math.floor(this.size / 2);
-    const odd = this.size % 2 !== 0;
+    const mid = Math.floor(this.size() / 2);
+    const odd = this.size() % 2 !== 0;
     const lList = this.subList(0, odd ? mid : mid - 1);
-    const rList = this.subList(mid, this.size - 1);
+    const rList = this.subList(mid, this.size() - 1);
     rList.reverse();
     return lList.equals(rList);
   }

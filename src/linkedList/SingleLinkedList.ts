@@ -43,7 +43,7 @@ export default class SingleLinkedList<T> extends LinkedList<T> {
    */
   insertLast(data: T): void {
     const currTail = this._tail;
-    const newNode = new ListNode(data, null, this.size);
+    const newNode = new ListNode(data, null, this.size());
     this._tail = newNode;
     if (!currTail) {
       this._head = newNode;
@@ -60,7 +60,7 @@ export default class SingleLinkedList<T> extends LinkedList<T> {
    * @throws ListIndexOutOfBoundsError if the specified index is less than starting index and greater than end index
    */
   insertAt(index: number, data: T): void {
-    if (index < 0 || index > this.size - 1)
+    if (index < 0 || index > this.size() - 1)
       throw error("ListIndexOutOfBoundsError");
     if (index === 0) return this.insertFirst(data);
     else if (index === this._size - 1) return this.insertLast(data);
@@ -138,7 +138,7 @@ export default class SingleLinkedList<T> extends LinkedList<T> {
     while (current) {
       if (current.value === data) {
         if (current.index === 0) return this.deleteFirst();
-        else if (current.index === this.size - 1) return this.deleteLast();
+        else if (current.index === this.size() - 1) return this.deleteLast();
         else {
           if (prev) prev.next = current.next;
           current.next = null;

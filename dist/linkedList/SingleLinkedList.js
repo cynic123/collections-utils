@@ -81,7 +81,7 @@ var SingleLinkedList = /** @class */ (function (_super) {
    */
   SingleLinkedList.prototype.insertLast = function (data) {
     var currTail = this._tail;
-    var newNode = new ListNode_1.default(data, null, this.size);
+    var newNode = new ListNode_1.default(data, null, this.size());
     this._tail = newNode;
     if (!currTail) {
       this._head = newNode;
@@ -97,7 +97,7 @@ var SingleLinkedList = /** @class */ (function (_super) {
    * @throws ListIndexOutOfBoundsError if the specified index is less than starting index and greater than end index
    */
   SingleLinkedList.prototype.insertAt = function (index, data) {
-    if (index < 0 || index > this.size - 1)
+    if (index < 0 || index > this.size() - 1)
       throw (0, console_1.error)("ListIndexOutOfBoundsError");
     if (index === 0) return this.insertFirst(data);
     else if (index === this._size - 1) return this.insertLast(data);
@@ -171,7 +171,7 @@ var SingleLinkedList = /** @class */ (function (_super) {
     while (current) {
       if (current.value === data) {
         if (current.index === 0) return this.deleteFirst();
-        else if (current.index === this.size - 1) return this.deleteLast();
+        else if (current.index === this.size() - 1) return this.deleteLast();
         else {
           if (prev) prev.next = current.next;
           current.next = null;

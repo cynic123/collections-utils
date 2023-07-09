@@ -10,8 +10,11 @@ import DoubleLinkedList from "../linkedList/DoubleLinkedList";
 export default class LinkedQueue<T> implements Queue<T> {
   protected _items: DoubleLinkedList<T>;
   constructor();
-  get size(): number;
   get items(): LinkedList<T>;
+  /**
+   * @returns the size of the queue
+   */
+  size(): number;
   /**
    * inserts an element to the end of the linked list based queue
    * @param data the element to be added to the end of the queue

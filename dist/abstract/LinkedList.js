@@ -27,13 +27,12 @@ var LinkedList = /** @class */ (function () {
     enumerable: false,
     configurable: true,
   });
-  Object.defineProperty(LinkedList.prototype, "size", {
-    get: function () {
-      return this._size;
-    },
-    enumerable: false,
-    configurable: true,
-  });
+  /**
+   * @returns the size of the list
+   */
+  LinkedList.prototype.size = function () {
+    return this._size;
+  };
   /**
    * inserts the given element to the end of the linked list
    * @param data data element to be inserted
@@ -173,10 +172,10 @@ var LinkedList = /** @class */ (function () {
     if (!this._head || !this._head.next) {
       return true;
     }
-    var mid = Math.floor(this.size / 2);
-    var odd = this.size % 2 !== 0;
+    var mid = Math.floor(this.size() / 2);
+    var odd = this.size() % 2 !== 0;
     var lList = this.subList(0, odd ? mid : mid - 1);
-    var rList = this.subList(mid, this.size - 1);
+    var rList = this.subList(mid, this.size() - 1);
     rList.reverse();
     return lList.equals(rList);
   };

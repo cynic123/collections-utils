@@ -16,12 +16,15 @@ export default class LinkedQueue<T> implements Queue<T> {
     this._items = new DoubleLinkedList();
   }
 
-  get size(): number {
-    return this._items.size;
-  }
-
   get items(): LinkedList<T> {
     return this._items;
+  }
+
+  /**
+   * @returns the size of the queue
+   */
+  size(): number {
+    return this._items.size();
   }
 
   /**
@@ -74,7 +77,7 @@ export default class LinkedQueue<T> implements Queue<T> {
    * @returns true if the queue is empty, else false
    */
   isEmpty(): boolean {
-    return this._items.size === 0;
+    return this._items.size() === 0;
   }
 
   /**

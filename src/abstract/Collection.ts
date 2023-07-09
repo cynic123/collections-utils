@@ -8,6 +8,11 @@
  */
 export default interface Collection<T> {
   /**
+   * @returns the size of the collection
+   */
+  size(): number;
+
+  /**
    * @returns if the collection is empty
    */
   isEmpty(): boolean;
