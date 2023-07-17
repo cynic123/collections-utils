@@ -38,7 +38,7 @@
   },
   "keywords": [],
   "author": "Prithwish Samanta",
-  "license": "ISC",
+  "license": "MIT",
   "description": "A simple TypeScript based JS library for some of the collections available in Java.",
   "files": [
     "dist",
